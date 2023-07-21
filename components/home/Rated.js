@@ -24,9 +24,9 @@ const Rated = () => {
 
 const styles = StyleSheet.create({
     story: {
-    width:120,
-    height: 180,
-    borderRadius:10,
+    width:150,
+    height:200,
+    borderRadius:20,
     marginLeft:20,
   },
 
