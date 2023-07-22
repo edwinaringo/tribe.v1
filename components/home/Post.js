@@ -5,7 +5,7 @@ import { POSTS } from '../../data/posts'
 
 const Post = ({post}) => {
   return (
-    <View style ={{marginBottom: 25}}>
+    <View style ={{marginBottom: 35}}>
         <PostImage post={post}/>
     </View>
   )
@@ -14,8 +14,14 @@ const Post = ({post}) => {
 const PostImage = ({post})=> (
     <View style={styles.container}>
         <View style={styles.item}>
-            <Image source ={{ uri: post.imageUrl }} style={styles.story}/>
-            <Text style={styles.eventPrice}>{post.price}</Text>
+            <Image source ={{ uri: post.imageUrl }} style={styles.post}/>
+              <Text style={styles.eventPrice}>{post.price}</Text>
+
+                <View style={styles.postDetails}>
+                    <Text style={{color:"black", fontSize:20}}> {post.eventName}</Text>
+                    <Text style={{color:"black", textAlign:"right", marginRight:4}}> {post.tribeName}</Text>
+                    <Text style={{color:"black"}}> {post.going}</Text>
+                </View>
         </View>
     </View>
 )
@@ -26,36 +32,50 @@ const styles = StyleSheet.create({
     eventPrice: {
         backgroundColor:'#FFFFFF',
         position: 'absolute',
-        left: 132,
-        top: 18,
+        left: 311.5,
+        top: 25,
         width:70,
         height:28,
         borderRadius:15,
         borderTopRightRadius:0,
         borderBottomRightRadius:0,
-        alignItems:'center',
-        justifyContent:'center',
-        textAlign:'center',
+        textAlign: "center",
+        alignContent:"center",
+        alignItems:"center",
     },
 
     container: {
-        width:'100%',
-        flex: 1,
-        flexDirection:'row',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start', // if you want to fill rows left to right
+        width:"100%",
+        marginTop:30,
+        marginBottom:100,
+        height: 480
+ 
     },
+
     item: {
-        flex: 1,
-        width: "50%",
-     },
-    story: {
-        width:190,
-        height: 200,
-        borderRadius:20,
-        marginLeft:12,
-        
+        height: 480,
+        marginRight:15,
+        marginLeft:15,
+        marginBottom:40,
+    },
+
+    post: {
+        width:"100%",
+        height: "100%",
+        borderRadius:20,  
+        borderBottomLeftRadius:0,
+        borderBottomRightRadius:0,
+    
       },
+
+    postDetails: {
+        width:"100%",
+        height: 90,
+        borderRadius:0,
+        backgroundColor:"#FFFFFF",
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius:20,
+    }
 
 })
 

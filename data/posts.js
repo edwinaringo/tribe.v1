@@ -7,6 +7,7 @@ export const POSTS = [
         price:'Free',
         date: 'Thu, 6-10 pm',
         eventName: "Kizomba after work at Britam",
+        tribeName: "Britam",
         going: '34 going',
     },
     {
@@ -15,6 +16,7 @@ export const POSTS = [
         price:2000,
         date: 'Sat, 10pm',
         eventName: "Blankets and wine",
+        tribeName: "KCB",
         going: '10,000 going',
     },
     {
@@ -23,6 +25,7 @@ export const POSTS = [
         price:'Free',
         date: 'Thur-Fri, 8am',
         eventName: "UoN Innovation Week",
+        tribeName: "University of Nairobi Science",
         going: '200 going',
     },
     {
@@ -31,6 +34,7 @@ export const POSTS = [
         price:'Free',
         date: 'Sat, 10pm',
         eventName: "Moringa Career Fair",
+        tribeName: "Moringa Hackers",
         going: '300 going',
     },
     {
@@ -39,6 +43,7 @@ export const POSTS = [
         price:5000,
         date: 'Thu-Sun, 7am',
         eventName: "Magical Kenya Open",
+        tribeName: "Absa",
         going: '20,000 going',
     },
     {
@@ -47,6 +52,7 @@ export const POSTS = [
         price:2000,
         date: 'Sat, 10pm',
         eventName: "IIK Golf Tournament",
+        tribeName: "Junior Golfers",
         going: '10,000 going',
     }
 ]
