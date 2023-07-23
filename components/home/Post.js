@@ -5,7 +5,7 @@ import { POSTS } from '../../data/posts'
 
 const Post = ({post}) => {
   return (
-    <View style ={{marginBottom: 35}}>
+    <View style ={{marginBottom: 25}}>
         <PostImage post={post}/>
     </View>
   )
@@ -13,14 +13,17 @@ const Post = ({post}) => {
 
 const PostImage = ({post})=> (
     <View style={styles.container}>
+        
         <View style={styles.item}>
             <Image source ={{ uri: post.imageUrl }} style={styles.post}/>
               <Text style={styles.eventPrice}>{post.price}</Text>
 
                 <View style={styles.postDetails}>
                     <Text style={{color:"black", fontSize:20}}> {post.eventName}</Text>
-                    <Text style={{color:"black", textAlign:"right", marginRight:4}}> {post.tribeName}</Text>
-                    <Text style={{color:"black"}}> {post.going}</Text>
+                    <Text style={{color:"black", textAlign:"right", marginRight:4, top:36, fontSize:16, right:10}}> {post.tribeName}</Text>
+                    <Text style={{color:"black", bottom:10}}> {post.going}</Text>
+                    <Text style={{color:"black", bottom:3}}> {post.date}</Text>
+
                 </View>
         </View>
     </View>
@@ -28,7 +31,6 @@ const PostImage = ({post})=> (
 
 
 const styles = StyleSheet.create({
-
     eventPrice: {
         backgroundColor:'#FFFFFF',
         position: 'absolute',
@@ -48,12 +50,12 @@ const styles = StyleSheet.create({
         width:"100%",
         marginTop:30,
         marginBottom:100,
-        height: 480
+        height: 400
  
     },
 
     item: {
-        height: 480,
+        height: 400,
         marginRight:15,
         marginLeft:15,
         marginBottom:40,
