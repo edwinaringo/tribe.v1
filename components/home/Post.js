@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     container: {
         width:"100%",
         marginTop:30,
-        marginBottom:100,
+        marginBottom:80,
         height: 400
  
     },
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
         height: 400,
         marginRight:15,
         marginLeft:15,
-        marginBottom:40,
     },
 
     post: {
