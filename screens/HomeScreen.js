@@ -10,11 +10,11 @@ import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
   <SafeAreaView style = {styles.container}> 
     <ScrollView>
-      <Header/>
+      <Header navigation={navigation}/>
       <Stories/>
       <Rated/>
       <ScrollView>

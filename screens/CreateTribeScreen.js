@@ -3,10 +3,10 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CreateNewTribe from '../components/newTribe/CreateNewTribe'
 
-const CreateTribeScreen = () => {
+const CreateTribeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-        <CreateNewTribe/>
+        <CreateNewTribe navigation={navigation} />
     </SafeAreaView>
   )
 }
