@@ -28,10 +28,9 @@ const Header = () => (
   
 
 </View>
-
 )
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
     container:{
         marginHorizontal:10
@@ -50,4 +49,5 @@ const styles=StyleSheet.create({
         marginLeft:27.5,
     }
 })
+
 export default CreateNewTribe

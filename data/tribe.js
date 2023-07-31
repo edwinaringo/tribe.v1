@@ -1,5 +1,6 @@
 export const TRIBE = [
     {
+        tribeImageUrl: '',
         tribeName: 'SUGC',
         tribeOwner: 'El Taariqo',
         tribeDescription: 'We are the Strathmore University Golf club',
