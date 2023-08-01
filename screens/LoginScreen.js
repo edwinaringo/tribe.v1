@@ -4,13 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import LogInForm from '../components/logIn/LogInForm'
 
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   return (
   
     <SafeAreaView style= {styles.container}>
         <Text style={styles.loginText}>Hello, </Text>
         <Text style={styles.loginText}>Welcome Back</Text>
-        <LogInForm/>
+        <LogInForm navigation={navigation}/>
     </SafeAreaView>
   )
 }
