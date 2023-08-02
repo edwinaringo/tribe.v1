@@ -36,14 +36,13 @@ const styles=StyleSheet.create({
     followersContainer:{
         marginTop:10,
         borderRadius:100,
-        margin:20,
+        margin:10,
         alignContent:'space-between',
         justifyContent:'space-between',
  
     },
 
     buttonsContainer:{
-        marginTop:1,
         borderRadius:100,
         marginLeft:50,
         flexDirection:'row',
