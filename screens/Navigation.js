@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './HomeScreen'
 import CreateTribeScreen from './CreateTribeScreen'
 import LoginScreen from './LoginScreen'
+import SignUpScreen from './SignUpScreen'
 
 
 const Stack = createStackNavigator()
@@ -17,12 +18,14 @@ const screenOptions = {
 const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='LoginScreen' 
+            initialRouteName='SignUpScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
                 <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
                 <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
+                <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
+
         </Stack.Navigator>
     </NavigationContainer>
  
