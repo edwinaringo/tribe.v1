@@ -6,8 +6,8 @@ import Validator from 'email-validator'
 
 const SignUpForm = ({navigation}) => {
   const SignupFormSchema = Yup.object().shape({
-    email:Yup.string().email().required('An email is required'),
     userName: Yup.string().required().min(2, 'A user name cannot be less than 2 characters'),
+    email:Yup.string().email().required('An email is required'),
     password: Yup.string().required().min(6, 'Your password cannot be less than 6 characters'),
     age: Yup.number().required().min(13, 'You have to be 13 and above to use this application'),
     phoneNumber: Yup.number(),
@@ -19,7 +19,7 @@ const SignUpForm = ({navigation}) => {
     <ScrollView style = {styles.wrapper}>
 
     <Formik
-        initialValues={{email:'', userName: '', password: '', age: '', phoneNumber: '', gender: ''}}
+        initialValues={{userName: '', email:'', password: '', age: '', phoneNumber: '', gender: ''}}
         onSubmit={(values) =>{
             console.log(values)
         }}
@@ -30,28 +30,6 @@ const SignUpForm = ({navigation}) => {
         {({handleChange, handleBlur, handleSubmit, values, isValid})=>(
 
         <>
-        <View style = {[
-            styles.inputField, 
-            {
-                borderColor: 
-                1 > values.userName.length || values.userName.length >= 2
-                 ? '#ccc' 
-                 : 'red',
-                },
-            ]}
-        >
-            <TextInput 
-                placeholderTextColor='#676767'
-                placeholder='Enter a username'
-                autoCapitalize='none'
-                // keyboardType='default'
-                textContentType='username'
-                autoFocus={true}
-                onChangeText={handleChange('userName')}
-                onBlur={handleBlur('userName')}
-                value={values.userName}
-            />
-        </View>
 
         <View style = {[
             styles.inputField,
@@ -74,6 +52,29 @@ const SignUpForm = ({navigation}) => {
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
+            />
+        </View>
+
+        <View style = {[
+            styles.inputField, 
+            {
+                borderColor: 
+                1 > values.userName.length || values.userName.length >= 2
+                 ? '#ccc' 
+                 : 'red',
+                },
+            ]}
+        >
+            <TextInput 
+                placeholderTextColor='#676767'
+                placeholder='Enter a username'
+                autoCapitalize='none'
+                // keyboardType='default'
+                textContentType='username'
+                autoFocus={true}
+                onChangeText={handleChange('userName')}
+                onBlur={handleBlur('userName')}
+                value={values.userName}
             />
         </View>
 
