@@ -14,7 +14,10 @@ const Header = ({navigation}) => {
         style={{marginLeft:5, width:25, height:25}}
         />
     </TouchableOpacity>
+    
+    <TouchableOpacity>
       <Text style={{color:'white', marginBottom:10, marginTop:7, fontSize:20, paddingLeft:10}}>__aringo__</Text>
+    </TouchableOpacity>
     </View>
   )
 }
