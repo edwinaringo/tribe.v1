@@ -5,7 +5,7 @@ import Header from '../components/profile/Header'
 import ProfilePicture from '../components/profile/ProfilePicture'
 import Followers from '../components/profile/Followers'
 import TicketsTribes from '../components/profile/TicketsTribes'
-import BottomTabs from '../components/home/BottomTabs'
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 
 
 const ProfileScreen = ({navigation}) => {
@@ -17,6 +17,7 @@ const ProfileScreen = ({navigation}) => {
        <Followers navigation={navigation}/>
        <TicketsTribes navigation={navigation}/>
       </ScrollView>
+      <BottomTabs icons={bottomTabIcons}/>
     </SafeAreaView>
   )
 }

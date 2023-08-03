@@ -7,6 +7,8 @@ import Rated from '../components/home/Rated'
 import Post from '../components/home/Post'
 import { POSTS } from '../data/posts'
 import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigator from '../components/home/BottomTabs'
 
 
 
@@ -23,7 +25,9 @@ const HomeScreen = ({navigation}) => {
         ))}
       </ScrollView>
     </ScrollView>
+
     <BottomTabs icons={bottomTabIcons}/>
+
   </SafeAreaView>
   )
 }
