@@ -7,6 +7,7 @@ import CreateTribeScreen from './CreateTribeScreen'
 import LoginScreen from './LoginScreen'
 import SignUpScreen from './SignUpScreen'
 import ProfileScreen from './ProfileScreen'
+import EventScreen from './EventScreen'
 
 
 const Stack = createStackNavigator()
@@ -19,7 +20,7 @@ const screenOptions = {
 const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='ProfileScreen' 
+            initialRouteName='HomeScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
@@ -27,8 +28,7 @@ const SignedInStack = () => (
                 <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
                 <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
                 <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
-
-
+                <Stack.Screen name = 'EventScreen' component={EventScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
  

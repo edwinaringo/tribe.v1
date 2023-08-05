@@ -7,6 +7,7 @@ import Rated from '../components/home/Rated'
 import Post from '../components/home/Post'
 import { POSTS } from '../data/posts'
 import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import EventScreen from './EventScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from '../components/home/BottomTabs'
 
@@ -20,8 +21,8 @@ const HomeScreen = ({navigation}) => {
       <Stories/>
       <Rated/>
       <ScrollView>
-        {POSTS.map((post, index)=>(
-              <Post post={post} key={index} />
+        {POSTS.map((post, index, navigation)=>(
+              <Post post={post} key={index} navigation={navigation}/>
         ))}
       </ScrollView>
     </ScrollView>
