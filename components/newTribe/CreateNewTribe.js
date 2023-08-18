@@ -5,7 +5,7 @@ import FormikTribeUploader from './FormikTribeUploader'
 const CreateNewTribe = ({navigation}) => (
     <View style={styles.container}>
         <Header navigation={navigation}/>
-        <FormikTribeUploader />
+        <FormikTribeUploader navigation={navigation} />
     </View>
  
 )

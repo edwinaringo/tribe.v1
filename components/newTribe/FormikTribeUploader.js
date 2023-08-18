@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Formik, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import { formik } from 'formik'
+import validUrl from 'valid-url'
 
 
 const PLACEHOLDER_IMG = 'https://react.semantic-ui.com/images/wireframe/image.png'
@@ -18,13 +19,17 @@ const createTribeSchema = Yup.object().shape({
 
 })
 
-const FormikTribeUploader = () => {
+const FormikTribeUploader = ({navigation}) => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
   return (
     <Formik
   initialValues={{ /*tribeName:'',*/ tribeImageUrl:'', tribeDescription:'', tribeLocation:'',tribePrivacy:'', tribeMembershipFee:''}}
-        onSubmit={(values)=> console.log(values)}
-        validationSchema={createTribeSchema} 
+        onSubmit={(values)=> {
+            console.log(values)
+            console.log('Your post was submitted successfully')
+            navigation.goBack()
+        }}
+        validationSchema={createTribeSchema}
         validateOnMount={true}
     >
         {({handleBlur, handleChange, handleSubmit, values, errors, isValid})=>
