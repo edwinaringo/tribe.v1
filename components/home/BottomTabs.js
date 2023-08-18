@@ -1,6 +1,7 @@
-import { View, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import React, {useState} from 'react'
-import { Divider } from 'react-native-elements'
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Divider } from 'react-native-elements';
+
 
 export const bottomTabIcons = [
     {
@@ -30,51 +31,67 @@ export const bottomTabIcons = [
 
     }
 ]
-const BottomTabs = ({icons}) => {
-
-    const [activeTab, setActiveTab] = useState('Home')
-
-    const Icon = ({icon}) => (
-        <TouchableOpacity onPress={() => setActiveTab(icon.name)}>   
-            <Image source={{uri:activeTab == icon.name ? icon.active : icon.inactive}} 
-            style={styles.icon}/>
-        </TouchableOpacity>
-    )
-  return (
-    <View style={styles.wrapper}>
-        <Divider width ={1} orientation='vertical'/>
+const BottomTabs = () => {
+    const [activeTab, setActiveTab] = useState('Home');
+  
+    const Icon = ({ icon }) => (
+      <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
+        <Image
+          source={{ uri: activeTab === icon.name ? icon.active : icon.inactive }}
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+    );
+  
+    return (
+      <View style={styles.wrapper}>
+        <Divider width={1} orientation='vertical' />
         <View style={styles.container}>
-        {icons.map((icon, index)=>(
+          {bottomTabIcons.map((icon, index) => (
             <Icon key={index} icon={icon} />
-        ))}
+          ))}
         </View>
-    </View>
-  )
-}
-
-
-const styles = StyleSheet.create({
-
+      </View>
+    );
+  };
+  
+  const styles = StyleSheet.create({
     wrapper: {
-        // position:'absolute',
-        // width:'100%',
-        // bottom: '3%',
-        // zIndex: 999,
-        // backgroundColor: '#000',
-
-
+      // position:'absolute',
+      // width:'100%',
+      // bottom: '3%',
+      // zIndex: 999,
+      // backgroundColor: '#000',
     },
-    icon:{
-        width:30,
-        height:30,
+    icon: {
+      width: 30,
+      height: 30,
     },
-
     container: {
-        flexDirection:'row',
-        justifyContent:'space-around',
-        height:50,
-        paddingTop:10,
-    }
-})
-
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      height: 50,
+      paddingTop: 10,
+    },
+  });
+  
+  // Create the Bottom Tab Navigator
+//   const Tab = createBottomTabNavigator();
+  
+//   // Wrap the BottomTabs component with the Tab.Navigator
+//   const TabNavigator = () => {
+//     return (
+//       <Tab.Navigator
+//         tabBar={(props) => <BottomTabs {...props} />}
+//         initialRouteName='HomeScreen'
+//       >
+//         <Tab.Screen name='HomeScreen' component={HomeScreen} />
+//         {/* <Tab.Screen name='Search' component={SearchScreen} />
+//         <Tab.Screen name='WeLive' component={WeLiveScreen} />
+//         <Tab.Screen name='Tickets' component={TicketScreen} /> */}
+//         <Tab.Screen name='ProfileScreen' component={ProfileScreen} />
+//       </Tab.Navigator>
+//     );
+//   };
+  
 export default BottomTabs

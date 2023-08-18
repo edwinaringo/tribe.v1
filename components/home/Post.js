@@ -1,13 +1,24 @@
-import { View, Text, StyleSheet, Image} from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { Divider } from 'react-native-elements'
 import { POSTS } from '../../data/posts'
 
-const Post = ({post}) => {
+const Post = ({post, navigation}) => {
+
+const handleImageTap = ({navigation}) => {
+    // Navigate to EventScreen and pass the selected image URL as a parameter
+    navigation.push('EventScreen', {
+      imageUrl: post.imageUrl,
+    })
+}
+
   return (
-    <View style ={{marginBottom: 25}}>
-        <PostImage post={post}/>
-    </View>
+    <TouchableOpacity onPress={handleImageTap}>
+      <View style={{ marginBottom: 25 }}>
+        <PostImage post={post} />
+      </View>
+    </TouchableOpacity>
   )
 }
 
@@ -28,7 +39,6 @@ const PostImage = ({post})=> (
         </View>
     </View>
 )
-
 
 const styles = StyleSheet.create({
     eventPrice: {
