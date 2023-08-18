@@ -20,7 +20,7 @@ const screenOptions = {
 const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='HomeScreen' 
+            initialRouteName='LoginScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
