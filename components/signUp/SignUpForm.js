@@ -1,10 +1,18 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Pressable, ScrollView } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Pressable, ScrollView, Alert } from 'react-native'
 import React from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
+import { FIREBASE_AUTH, FIRESTORE_DB } from '../../firebase'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore, collection, addDoc } from 'firebase/firestore'
+
 
 const SignUpForm = ({navigation}) => {
+
+    const auth = getAuth(FIREBASE_AUTH);
+    const db = getFirestore(FIRESTORE_DB)
+
   const SignupFormSchema = Yup.object().shape({
     userName: Yup.string().required().min(2, 'A user name cannot be less than 2 characters'),
     email:Yup.string().email().required('An email is required'),
@@ -14,14 +22,54 @@ const SignUpForm = ({navigation}) => {
     gender: Yup.string()
   })
 
+  const getRandomProfilePicture = async() => {
+    const response = await fetch('https://randomuser.me/api')
+    const data = await response.json()
+    return data.results[0].picture.large
+  }
+
+  const onSignup = async (email, password, username) => {
+    try {
+      const authUser = await createUserWithEmailAndPassword(auth, email, password)
+      console.log("Firebase sign up is successful", email, username, password)
+
+      const user = {
+        owner_uid: authUser.user.uid,
+        username: username,
+        email: authUser.user.email,
+        profile_picture: await getRandomProfilePicture(),
+      }
+
+      const usersCollection=collection(db, 'users');
+      await addDoc(usersCollection, user);
+      console.log("firestore addition successfull", email, username)
+    } catch (error) {
+     console.log('Firestore Adding failed');
+     Alert.alert('User name or password is invalid', error.message)
+        // [
+        //     {
+        //         text: 'OK',
+        //         onPress: () => console.log('OK'),
+        //         style:'cancel',
+        //     },
+        //     {text:'Log In', onPress: () => navigation.push('LoginScreen')}
+        // ]
+    
+    
+    }
+    
+  }
+
+
+
   return (
     
     <ScrollView style = {styles.wrapper}>
 
     <Formik
         initialValues={{userName: '', email:'', password: '', age: '', phoneNumber: '', gender: ''}}
-        onSubmit={(values) =>{
-            console.log(values)
+        onSubmit={values =>{
+            onSignup(values.email, values.password, values.userName)
         }}
         validationSchema={SignupFormSchema}
         validationOnMount={true}
