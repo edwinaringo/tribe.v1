@@ -35,9 +35,9 @@ const SignUpForm = ({navigation}) => {
       console.log("Firebase sign up is successful", email, username, password)
 
 
-      const usersCollection=collection(db, 'users');
+      const usersCollection=collection(db, 'users')
 
-      const userDocRef = doc(usersCollection, email); // Use email as the document ID
+      const userDocRef = doc(usersCollection, email) // Use email as the document ID
 
 
       const user = {
