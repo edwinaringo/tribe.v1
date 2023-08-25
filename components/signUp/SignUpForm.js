@@ -5,7 +5,8 @@ import * as Yup from 'yup'
 import Validator from 'email-validator'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../../firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { getFirestore, collection, addDoc } from 'firebase/firestore'
+import { getFirestore, collection, setDoc, addDoc, doc } from 'firebase/firestore'
+
 
 
 const SignUpForm = ({navigation}) => {
@@ -30,8 +31,14 @@ const SignUpForm = ({navigation}) => {
 
   const onSignup = async (email, password, username) => {
     try {
-      const authUser = await createUserWithEmailAndPassword(auth, email, password)
+      const authUser = await createUserWithEmailAndPassword(auth, email, password, username)
       console.log("Firebase sign up is successful", email, username, password)
+
+
+      const usersCollection=collection(db, 'users');
+
+      const userDocRef = doc(usersCollection, email); // Use email as the document ID
+
 
       const user = {
         owner_uid: authUser.user.uid,
@@ -40,11 +47,10 @@ const SignUpForm = ({navigation}) => {
         profile_picture: await getRandomProfilePicture(),
       }
 
-      const usersCollection=collection(db, 'users');
-      await addDoc(usersCollection, user);
+      await setDoc(userDocRef, user)
       console.log("firestore addition successfull", email, username)
     } catch (error) {
-     console.log('Firestore Adding failed');
+     console.log('Firestore Adding failed')
      Alert.alert('User name or password is invalid', error.message)
         // [
         //     {
@@ -56,11 +62,8 @@ const SignUpForm = ({navigation}) => {
         // ]
     
     
-    }
-    
+    }    
   }
-
-
 
   return (
     

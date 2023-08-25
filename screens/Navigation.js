@@ -17,16 +17,14 @@ const screenOptions = {
 }
 
 
-const SignedInStack = () => (
+export const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='LoginScreen' 
+            initialRouteName='HomeScreen' 
             screenOptions={screenOptions}
             >
-                <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
                 <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
                 <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
-                <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
                 <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
                 <Stack.Screen name = 'EventScreen' component={EventScreen}/>
         </Stack.Navigator>
@@ -34,4 +32,18 @@ const SignedInStack = () => (
  
 )
 
-export default SignedInStack
+export const SignedOutStack = () => (
+    <NavigationContainer>
+        <Stack.Navigator 
+            initialRouteName='LoginScreen' 
+            screenOptions={screenOptions}
+            >
+                <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
+                <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
+    
+        </Stack.Navigator>
+    </NavigationContainer>
+ 
+)
+
+
