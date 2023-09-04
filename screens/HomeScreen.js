@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from '../components/home/BottomTabs'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
 import {  getFirestore, collection, getDocs } from 'firebase/firestore'
+import ExploreScreen from './ExploreScreen'
 
 
 

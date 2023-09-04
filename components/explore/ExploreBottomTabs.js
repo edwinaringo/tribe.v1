@@ -1,7 +1,7 @@
-import { View, TouchableOpacity, StyleSheet, Image, Animated, Keyboard, Easing } from 'react-native'
-import React, { useState, useEffect, useCallback } from 'react'
-import { Divider } from 'react-native-elements'
-import { useNavigation } from '@react-navigation/native'
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Divider } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 import ExploreScreen from '../../screens/ExploreScreen'
 
 
@@ -37,49 +37,13 @@ const BottomTabs = () => {
 
     const navigation = useNavigation()
 
-    const [activeTab, setActiveTab] = useState('Home');
-    const [bottomTabVisible, setBottomTabVisible] = useState(true)
-    const translateY = new Animated.Value(0)
-
-    const _keyboardDidShow = useCallback(()=> {
-      setBottomTabVisible(false)
-      Animated.timing(translateY, {
-        toValue: 1,
-        duration:300,
-        easing: Easing.easeOut,
-        useNativeDriver:true,
-      }).start();
-    }, []);
-
-    const _keyboardDidHide = useCallback(() => {
-      Animated.timing(translateY, {
-        toValue: 0,
-        duration: 300,
-        easing: Easing.easeIn,
-        useNativeDriver: true,
-      }).start(() => {
-        setBottomTabVisible(true);
-      });
-    }, []);
-
-    useEffect(() => {
-      const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', _keyboardDidShow)
-      const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', _keyboardDidHide)
-  
-      return () => {
-        keyboardDidShowListener.remove()
-        keyboardDidHideListener.remove()
-      };
-    }, [_keyboardDidShow, _keyboardDidHide])
-
-
-  
+    const [activeTab, setActiveTab] = useState('Explore');
   
     const Icon = ({ icon }) => (
       <TouchableOpacity onPress={() => [ handleTabPress(icon.name)]}>
         <Image
           source={{ uri: activeTab === icon.name ? icon.active : icon.inactive }}
-          style={[styles.icon, { opacity:bottomTabVisible ? 1 : 0}]}
+          style={styles.icon}
         />
       </TouchableOpacity>
     );
@@ -115,24 +79,25 @@ const BottomTabs = () => {
   }
   
     return (
-    <Animated.View style={[styles.wrapper, { transform: [{ translateY: translateY.interpolate({ inputRange: [0, 1], outputRange: [0, 50] }) }] }]}>
-      <Divider width={1} orientation="vertical" />
-      <View style={styles.container}>
-        {bottomTabIcons.map((icon, index) => (
-          <Icon key={index} icon={icon} />
-        ))}
+      <View style={styles.wrapper}>
+        <Divider width={1} orientation='vertical' />
+        <View style={styles.container}>
+          {bottomTabIcons.map((icon, index) => (
+            <Icon key={index} icon={icon} />
+          ))}
+        </View>
       </View>
-    </Animated.View>
     );
   };
   
   const styles = StyleSheet.create({
-    // wrapper: {
-    //   position:'absolute',
-    //   width:'100%',
-    //   zIndex: 999,
-    //   backgroundColor: '#000',
-    // },
+    wrapper: {
+      // position:'absolute',
+      // width:'100%',
+      // bottom: '3%',
+      // zIndex: 999,
+      // backgroundColor: '#000',
+    },
     icon: {
       width: 30,
       height: 30,

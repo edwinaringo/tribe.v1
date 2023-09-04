@@ -8,6 +8,8 @@ import LoginScreen from './LoginScreen'
 import SignUpScreen from './SignUpScreen'
 import ProfileScreen from './ProfileScreen'
 import EventScreen from './EventScreen'
+import ExploreScreen from './ExploreScreen'
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 
 
 const Stack = createStackNavigator()
@@ -20,13 +22,14 @@ const screenOptions = {
 export const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='HomeScreen' 
+            initialRouteName='ExploreScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
                 <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
                 <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
-                <Stack.Screen name = 'EventScreen' component={EventScreen}/>
+                <Stack.Screen name = 'EventScreen' component={EventScreen} />
+                <Stack.Screen name = 'ExploreScreen' component= {ExploreScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
  
