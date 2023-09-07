@@ -1,18 +1,20 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Divider } from 'react-native-elements'
+import ExploreTribesScreen from '../../screens/ExploreTribesScreen'
 
-
-const CategorySection = () => {
+const CategorySection = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.push('SignUpScreen')}>
+
         <Text style={styles.categoryEventsText}>Events</Text>
-      </TouchableOpacity>
+
       <Divider width={1} orientation="vertical"  />
+
       <TouchableOpacity onPress={() => navigation.push('ExploreTribesScreen')}>
         <Text style={styles.categoryTribesText}>Tribes</Text>
       </TouchableOpacity>
+
     </View>
   )
 }
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         marginLeft: 100,
         marginRight: 100,
-        marginTop: 20,
+        marginTop: 10,
     },
 
     categoryEventsText: {

@@ -10,6 +10,7 @@ import ProfileScreen from './ProfileScreen'
 import EventScreen from './EventScreen'
 import ExploreScreen from './ExploreScreen'
 import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import ExploreTribesScreen from './ExploreTribesScreen'
 
 
 const Stack = createStackNavigator()
@@ -22,7 +23,7 @@ const screenOptions = {
 export const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='ExploreScreen' 
+            initialRouteName='ExploreTribesScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
@@ -30,6 +31,7 @@ export const SignedInStack = () => (
                 <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
                 <Stack.Screen name = 'EventScreen' component={EventScreen} />
                 <Stack.Screen name = 'ExploreScreen' component= {ExploreScreen}/>
+                <Stack.Screen name = 'ExploreTribesScreen' component={ExploreTribesScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
  

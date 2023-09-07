@@ -13,7 +13,7 @@ const ExploreScreen = ({navigation}) => {
     <SafeAreaView style= {styles.container}>
         <ScrollView>
              <SearchBar />
-             <CategorySection/>
+             <CategorySection navigation={navigation}/>
         </ScrollView>       
         <ExploreBottomTabs icons={bottomTabIcons} />
     </SafeAreaView>
