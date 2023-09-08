@@ -1,38 +1,74 @@
-import { View, Text, ScrollView , StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { USERS } from '../../data/users'
-import { TRIBES } from '../../data/tribes'
+import { useNavigation } from '@react-navigation/native'
+import { Divider } from 'react-native-elements'
+import { POSTS } from '../../data/posts'
 
+const ExploreTribesPosts = ({tribe, navigation}) => {
 
-
-const Stories = () => {
   return (
-    <View style={{marginBottom: 13 }}>
-        <Text style={{color:'white', marginBottom:10, marginTop:0, fontSize:20, paddingLeft:8}}>Explore</Text>
-        <View>
-            {USERS.map((story, index) => (
-              <View key={index} style={{alignItems:'center'}}>
-                <Image source={{ uri:story.image }} style={styles.tribe}/>
-              </View>
-            ))}
-
-        </View>
+    <View style ={{marginBottom: 25}}>
+        <TribeImage tribe={tribe}/>
     </View>
   )
+
+  // return (
+  //   <TouchableOpacity onPress={handleImageTap}>
+  //     <View style={{ marginBottom: 25 }}>
+  //       <PostImage post={post} />
+  //     </View>
+  //   </TouchableOpacity>
+  // )
 }
 
+const TribeImage = ({tribe})=> (
+    <View style={styles.container}>
+        <View style={styles.item}>
+            <Image source ={{ uri: 'https://singersroom.com/wp-content/uploads/2023/05/Best-of-Reggae-Songs.jpg' }} style={styles.post}/>
+                <View style={styles.tribeDetails}>
+                    <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>South B Book Club</Text>
+                    <Text style={{color:"3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>South B, Nairobi</Text>
+                    <Text style={{color:"3F3F3F", top:5, marginLeft:3}}>232 members</Text>
+                    <Text style={{color:"3F3F3F", bottom:5, top:10, marginLeft:3}}>Free membership</Text>
+                </View>
+        </View>
+    </View>
+)
 
 const styles = StyleSheet.create({
-    tribe: {
-        width: 380,
-        height: 90,
-        borderRadius:10,
-        margin:10,
-  },
+
+
+    container: {
+        marginTop:30,
+        marginBottom:80,
+    },
+
+    item: {
+        height: 100,
+        width:"100%",
+        marginRight:15,
+        marginLeft:15,
+        flex:1,
+        flexDirection:'row',
+    },
+
+    post: {
+        width:120,
+        height: 100,
+        borderBottomLeftRadius:5,
+        borderTopLeftRadius:5,
+      },
+
+    tribeDetails: {
+        width:265,
+        height: 100,
+        borderRadius:0,
+        backgroundColor:"#FFFFFF",
+        borderBottomRightRadius:5,
+        borderTopRightRadius:5,   
+    },
 
 })
 
 
-
-
-export default Stories
+export default ExploreTribesPosts
