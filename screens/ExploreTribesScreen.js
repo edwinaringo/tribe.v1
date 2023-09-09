@@ -5,6 +5,7 @@ import ExploreBottomTabs, { bottomTabIcons } from '../components/home/BottomTabs
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CategorySection from '../components/explore/CategorySection'
 import ExploreTribesPosts from '../components/exploreTribes/ExploreTribesPosts'
+import { TRIBES } from '../data/tribes'
 
 
 const ExploreTribesScreen = ({navigation}) => {
@@ -15,7 +16,11 @@ const ExploreTribesScreen = ({navigation}) => {
         <ScrollView>
              <SearchBar />
              <CategorySection navigation={navigation}/>
-             <ExploreTribesPosts/>
+             {TRIBES.map((tribe, index)=>(
+                <ExploreTribesPosts tribe = {tribe} key={index} navigation={navigation}/>
+             )
+             )}
+             
         </ScrollView>       
         <ExploreBottomTabs icons={bottomTabIcons} />
     </SafeAreaView>

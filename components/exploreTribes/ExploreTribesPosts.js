@@ -3,11 +3,12 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Divider } from 'react-native-elements'
 import { POSTS } from '../../data/posts'
+import { TRIBES } from '../../data/tribes'
 
-const ExploreTribesPosts = ({tribe, navigation}) => {
+const ExploreTribesPosts = ({tribe}) => {
 
   return (
-    <View style ={{marginBottom: 25}}>
+    <View style = {{marginBottom: 25}}>
         <TribeImage tribe={tribe}/>
     </View>
   )
@@ -22,17 +23,19 @@ const ExploreTribesPosts = ({tribe, navigation}) => {
 }
 
 const TribeImage = ({tribe})=> (
+  
     <View style={styles.container}>
         <View style={styles.item}>
-            <Image source ={{ uri: 'https://singersroom.com/wp-content/uploads/2023/05/Best-of-Reggae-Songs.jpg' }} style={styles.post}/>
+            <Image source = {{ uri: tribe.tribeImageUrl }} style={styles.post}/>
                 <View style={styles.tribeDetails}>
-                    <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>South B Book Club</Text>
-                    <Text style={{color:"3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>South B, Nairobi</Text>
-                    <Text style={{color:"3F3F3F", top:5, marginLeft:3}}>232 members</Text>
-                    <Text style={{color:"3F3F3F", bottom:5, top:10, marginLeft:3}}>Free membership</Text>
+                    <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>{tribe.tribeName}</Text>
+                    <Text style={{color:"#3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>{tribe.tribeLocation}</Text>
+                    <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>232 members</Text>
+                    <Text style={{color:"#3F3F3F", bottom:5, top:10, marginLeft:3}}>{tribe.tribeMembershipFee} membership fee</Text>
                 </View>
         </View>
     </View>
+     
 )
 
 const styles = StyleSheet.create({
