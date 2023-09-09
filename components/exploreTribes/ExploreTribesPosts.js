@@ -8,7 +8,7 @@ import { TRIBES } from '../../data/tribes'
 const ExploreTribesPosts = ({tribe}) => {
 
   return (
-    <View style = {{marginBottom: 25}}>
+    <View style = {{marginBottom:0}}>
         <TribeImage tribe={tribe}/>
     </View>
   )
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
 
 
     container: {
-        marginTop:30,
-        marginBottom:80,
+        marginTop:15,
+        marginBottom:5,
     },
 
     item: {
