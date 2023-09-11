@@ -1,14 +1,15 @@
 import { View, Text, Image, TextInput, Button } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Formik, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import { formik } from 'formik'
 import validUrl from 'valid-url'
+import { getFirestore, collection, setDoc, addDoc, doc } from 'firebase/firestore'
 
 
 const PLACEHOLDER_IMG = 'https://react.semantic-ui.com/images/wireframe/image.png'
 
-const createTribeSchema = Yup.object().shape({
+const uploadTribeSchema = Yup.object().shape({
     // tribeImageUrl: Yup.string().url().required('A URL is required'),
     tribeName: Yup.string().max(200, 'Name Cannot be longer than 200 characters'),
     tribeDescription: Yup.string().max(200, 'Tribe description cannot be longer than 200 characters'),
@@ -21,6 +22,10 @@ const createTribeSchema = Yup.object().shape({
 
 const FormikTribeUploader = ({navigation}) => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
+    const [currentLoggedInUser, setCurrentLoggedInUser] = useState(null)
+
+
+
   return (
     <Formik
   initialValues={{ /*tribeName:'',*/ tribeImageUrl:'', tribeDescription:'', tribeLocation:'',tribePrivacy:'', tribeMembershipFee:''}}
@@ -29,7 +34,7 @@ const FormikTribeUploader = ({navigation}) => {
             console.log('Your post was submitted successfully')
             navigation.goBack()
         }}
-        validationSchema={createTribeSchema}
+        validationSchema={uploadTribeSchema}
         validateOnMount={true}
     >
         {({handleBlur, handleChange, handleSubmit, values, errors, isValid})=>
