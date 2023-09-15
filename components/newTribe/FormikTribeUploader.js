@@ -54,7 +54,14 @@ const FormikTribeUploader = ({navigation}) => {
         getUsername();
       }, []);
 
-      const uploadTribeToFirebase = async (tribeName, tribeDescription, tribeLocation, tribePrivacy, tribeMembershipFee) => {
+      const uploadTribeToFirebase = async (
+        tribeImageUrl,
+        tribeName, 
+        tribeDescription, 
+        tribeLocation, 
+        tribeMembershipFee,
+        tribePrivacy, 
+        ) => {
         const user = auth.currentUser;
         if (!user) {
           // Handle user not logged in
@@ -66,11 +73,11 @@ const FormikTribeUploader = ({navigation}) => {
         try {
           await addDoc(tribeRef, {
             tribeImageUrl: PLACEHOLDER_IMG,
-            tribeName,
-            tribeDescription,
-            tribeLocation,
-            tribePrivacy,
-            tribeMembershipFee,
+            tribeName: tribeName,
+            tribeDescription: tribeDescription,
+            tribeLocation: tribeLocation,
+            tribeMembershipFee: tribeMembershipFee,
+            tribePrivacy: tribePrivacy,
             tribeInterests: [],
             tribeMembers: [],
             user: currentLoggedInUser.username,
@@ -91,9 +98,9 @@ const FormikTribeUploader = ({navigation}) => {
 
   return (
     <Formik
-  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'',tribePrivacy:'', tribeMembershipFee:''}}
+  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'', tribeMembershipFee:'', tribePrivacy:''}}
         onSubmit={(values) => {
-          uploadTribeToFirebase(values.tribeImageUrl, values.tribeName, values.tribeDescription, values.tribeLocation, values.tribePrivacy, values.tribeMembershipFee, values.tribeName)
+          uploadTribeToFirebase(values.tribeImageUrl, values.tribeName, values.tribeDescription, values.tribeLocation, values.tribeMembershipFee, values.tribePrivacy)
         }}
         validationSchema={uploadTribeSchema}
         validateOnMount={true}
