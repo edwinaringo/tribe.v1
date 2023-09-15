@@ -4,7 +4,11 @@ import { Formik, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import { formik } from 'formik'
 import validUrl from 'valid-url'
-import { getFirestore, collection, setDoc, addDoc, doc } from 'firebase/firestore'
+import { FIREBASE_AUTH, FIRESTORE_DB } from '../../firebase'
+import { getFirestore, addDoc, serverTimestamp, query, where, limit, collection, getDocs } from 'firebase/firestore'
+import { useNavigation } from '@react-navigation/native'
+import { getAuth } from 'firebase/auth'
+
 
 
 const PLACEHOLDER_IMG = 'https://react.semantic-ui.com/images/wireframe/image.png'
@@ -20,24 +24,81 @@ const uploadTribeSchema = Yup.object().shape({
 
 })
 
+const auth = getAuth(FIREBASE_AUTH);
+const db = getFirestore(FIRESTORE_DB)
+
 const FormikTribeUploader = ({navigation}) => {
     const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
     const [currentLoggedInUser, setCurrentLoggedInUser] = useState(null)
+    // const navigation = useNavigation()
+
+ 
+    useEffect(() => {
+        const getUsername = async () => {
+          const user = auth.currentUser;
+          if (user) {
+            const userRef = collection(db, 'users');
+            const q = query(userRef, where('owner_uid', '==', user.uid), limit(1));
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+              setCurrentLoggedInUser({
+                username: doc.data().username,
+                profilePicture: doc.data().profile_picture,
+              });
+            });
+          } else {
+            // Handle user not logged in
+            console.log('User is not logged in.');
+          }
+        };
+        getUsername();
+      }, []);
+
+      const uploadTribeToFirebase = async (tribeName, tribeDescription, tribeLocation, tribePrivacy, tribeMembershipFee) => {
+        const user = auth.currentUser;
+        if (!user) {
+          // Handle user not logged in
+          console.log('User is not logged in.');
+          return;
+        }
+    
+        const tribeRef = collection(db, 'users', user.email, 'tribes');
+        try {
+          await addDoc(tribeRef, {
+            tribeImageUrl: PLACEHOLDER_IMG,
+            tribeName,
+            tribeDescription,
+            tribeLocation,
+            tribePrivacy,
+            tribeMembershipFee,
+            tribeInterests: [],
+            tribeMembers: [],
+            user: currentLoggedInUser.username,
+            profile_picture: currentLoggedInUser.profilePicture,
+            owner_uid: user.uid,
+            createdAt: serverTimestamp(),
+            likes: 0,
+            likes_by_users: [],
+            comments: [],
+          });
+          navigation.goBack();
+        } catch (error) {
+          console.error('Error uploading tribe:', error);
+        }
+      };
 
 
 
   return (
     <Formik
-  initialValues={{ /*tribeName:'',*/ tribeImageUrl:'', tribeDescription:'', tribeLocation:'',tribePrivacy:'', tribeMembershipFee:''}}
-        onSubmit={(values)=> {
-            console.log(values)
-            console.log('Your post was submitted successfully')
-            navigation.goBack()
+  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'',tribePrivacy:'', tribeMembershipFee:''}}
+        onSubmit={(values) => {
+          uploadTribeToFirebase(values.tribeImageUrl, values.tribeName, values.tribeDescription, values.tribeLocation, values.tribePrivacy, values.tribeMembershipFee, values.tribeName)
         }}
         validationSchema={uploadTribeSchema}
         validateOnMount={true}
     >
-        {({handleBlur, handleChange, handleSubmit, values, errors, isValid})=>
+        {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) =>
             <>
                 <View style={{
                     margin:20, 
