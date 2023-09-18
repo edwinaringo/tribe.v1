@@ -8,6 +8,9 @@ import LoginScreen from './LoginScreen'
 import SignUpScreen from './SignUpScreen'
 import ProfileScreen from './ProfileScreen'
 import EventScreen from './EventScreen'
+import ExploreScreen from './ExploreScreen'
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import ExploreTribesScreen from './ExploreTribesScreen'
 
 
 const Stack = createStackNavigator()
@@ -17,21 +20,35 @@ const screenOptions = {
 }
 
 
-const SignedInStack = () => (
+export const SignedInStack = () => (
+    <NavigationContainer>
+        <Stack.Navigator 
+            initialRouteName='HomeScreen' 
+            screenOptions={screenOptions}
+            >
+                <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
+                <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
+                <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
+                <Stack.Screen name = 'EventScreen' component={EventScreen} />
+                <Stack.Screen name = 'ExploreScreen' component= {ExploreScreen}/>
+                <Stack.Screen name = 'ExploreTribesScreen' component={ExploreTribesScreen}/>
+        </Stack.Navigator>
+    </NavigationContainer>
+ 
+)
+
+export const SignedOutStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
             initialRouteName='LoginScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
-                <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
-                <Stack.Screen name = 'CreateTribeScreen' component={CreateTribeScreen}/>
                 <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
-                <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
-                <Stack.Screen name = 'EventScreen' component={EventScreen}/>
+    
         </Stack.Navigator>
     </NavigationContainer>
  
 )
 
-export default SignedInStack
+

@@ -1,4 +1,4 @@
-import { View, Text, ScrollView , StyleSheet, Image} from 'react-native'
+import { View, Text, ScrollView , StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { USERS } from '../../data/users'
 

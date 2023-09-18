@@ -1,9 +1,8 @@
-import { View, Text } from "react-native";
 import * as React from 'react'
-import SignedInStack from "./screens/Navigation";
+import AuthNavigation from "./AuthNavigation";
 
 export default function App() {
-  return <SignedInStack />
+  return <AuthNavigation />
   
   
 }

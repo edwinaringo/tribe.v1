@@ -27,6 +27,9 @@ export const USERS = [
     },    {
         user: 'jazz_fest',
         image: 'https://images.unsplash.com/photo-1682687982183-c2937a74257c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=400&q=60',
+    },  {
+        user: 'SUGC',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAbPc9-dwSBUTgKhyvu75P82frMT3mQ_yZPw&usqp=CAU',
     },
 
 ]

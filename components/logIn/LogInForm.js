@@ -3,12 +3,14 @@ import React, { useState} from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
-import { FIREBASE_AUTH } from '../../firebase'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { FIREBASE_AUTH, FIRESTORE_DB } from '../../firebase'
+import { db, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
 const LogInForm = ({navigation}) => {
 
     const auth = getAuth(FIREBASE_AUTH);
+    const db = getFirestore(FIRESTORE_DB);
 
 
 
@@ -23,8 +25,16 @@ const LogInForm = ({navigation}) => {
           console.log("Firebase log in successful", email, password)
         } catch (error) {
          console.log('Firebase failed')
-         Alert.alert(error.message)
-         
+         Alert.alert('User name or password is invalid', error.message,
+            [
+                {
+                    text: 'OK',
+                    onPress: () => console.log('OK'),
+                    style:'cancel',
+                },
+                {text:'Sign Up', onPress: () => navigation.push('SignUpScreen')}
+            ]
+        ) 
         }
       }
 
