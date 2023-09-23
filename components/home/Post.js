@@ -4,17 +4,16 @@ import { useNavigation } from '@react-navigation/native'
 import { Divider } from 'react-native-elements'
 import { POSTS } from '../../data/posts'
 
-const Post = ({post, navigation}) => {
+const Post = ({post}) => {
 
-const handleImageTap = ({navigation}) => {
-    // Navigate to EventScreen and pass the selected image URL as a parameter
-    navigation.push('EventScreen', {
-      imageUrl: post.imageUrl,
-    })
-}
+  const navigation = useNavigation()
+
+  const handlePostPress = () => {
+    navigation.navigate('EventScreen', {post})
+  }
 
   return (
-    <TouchableOpacity onPress={handleImageTap}>
+    <TouchableOpacity onPress={handlePostPress}>
       <View style={{ marginBottom: 25 }}>
         <PostImage post={post} />
       </View>
@@ -27,8 +26,7 @@ const PostImage = ({post})=> (
         
         <View style={styles.item}>
             <Image source ={{ uri: post.imageUrl }} style={styles.post}/>
-              <Text style={styles.eventPrice}>{post.price}</Text>
-
+              <Text style={styles.eventPrice}>{post.eventRate}</Text>
                 <View style={styles.postDetails}>
                     <Text style={{color:"black", fontSize:20}}> {post.eventName}</Text>
                     <Text style={{color:"black", textAlign:"right", marginRight:4, top:36, fontSize:16, right:10}}> {post.tribeName}</Text>
