@@ -83,8 +83,8 @@ const FormikTribeUploader = ({navigation}) => {
             user: currentLoggedInUser.username,
             profile_picture: currentLoggedInUser.profilePicture,
             owner_uid: user.uid,
+            owner_email: user.email,
             createdAt: serverTimestamp(),
-            likes: 0,
             likes_by_users: [],
             comments: [],
           });

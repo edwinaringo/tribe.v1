@@ -6,8 +6,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import CategorySection from '../components/explore/CategorySection'
 import ExploreTribesPosts from '../components/exploreTribes/ExploreTribesPosts'
 import { TRIBES } from '../data/tribes'
-import { getDocs, collection, getFirestore, collectionGroup } from 'firebase/firestore';
+import { getDocs, collection, getFirestore, collectionGroup } from 'firebase/firestore'
 import { FIRESTORE_DB } from '../firebase'
+
 
 
 const ExploreTribesScreen = ({navigation}) => {
