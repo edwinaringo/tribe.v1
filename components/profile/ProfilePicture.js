@@ -38,20 +38,18 @@ const styles= StyleSheet.create({
     },
 
     profileText:{
-        color:'white',
+        color:'black',
         marginTop:5,
         fontSize:25,
         fontWeight:'bold'
     },
 
     tokens:{
-        marginTop:10, 
-        backgroundColor: '#FDD505', 
-        height:34,
-        width:80,
+        marginTop:3, 
+        backgroundColor: '#ffd700', 
+        height:25,
+        width:50,
         borderRadius:15,
-        borderColor:'black', 
-        borderWidth:1.5,
         alignContent:'space-between',
         justifyContent:'center',
         alignItems:'center',
@@ -61,15 +59,15 @@ const styles= StyleSheet.create({
 
     tokenText:{
         fontWeight:'bold',
-        fontSize:17,
-        marginLeft:20
+        fontSize:15,
+        marginLeft:5
         
 
     },
 
     tokenIcon:{
-        height:20,
-        width:20,
+        height:15,
+        width:15,
     }
 })
 

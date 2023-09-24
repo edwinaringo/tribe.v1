@@ -9,14 +9,14 @@ const Header = ({navigation}) => {
        <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image 
         source ={{
-            uri: 'https://cdn.iconfinder.com/stored_data/1178005/128/png?token=1690553131-VTM9DKJ7dmy1eEEBeOj%2FP3%2FwbrpfS4Bgb1lHZelDprA%3D'
+            uri: 'https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Chevron_Left-256.png'
         }}
-        style={{marginLeft:5, width:25, height:25}}
+        style={{marginLeft:5, width:30, height:30}}
         />
     </TouchableOpacity>
     
     <TouchableOpacity>
-      <Text style={{color:'white', marginBottom:10, marginTop:7, fontSize:20, paddingLeft:10}}>__aringo__</Text>
+      <Text style={{color:'black', marginBottom:10, marginTop:7, fontSize:20, paddingLeft:10}}>__aringo__</Text>
     </TouchableOpacity>
     </View>
   )

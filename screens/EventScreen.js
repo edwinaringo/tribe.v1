@@ -21,7 +21,7 @@ const EventScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: {
-      backgroundColor: 'black',
+      backgroundColor: 'FEFEFE',
       flex: 1,
   },
 })

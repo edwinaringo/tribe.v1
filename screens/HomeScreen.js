@@ -61,7 +61,7 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'black',
+        backgroundColor: 'FEFEFE',
         flex: 1,
     },
     postContainer: {
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap: 'wrap',
         alignItems: 'flex-start', // if you want to fill rows left to right
+        fontFamily: 'MyCustomFont'
+
         
     }
 })

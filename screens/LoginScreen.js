@@ -18,7 +18,7 @@ const LoginScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'white',
+        backgroundColor:'FEFEFE',
         flex: 1,
         paddingTop:40,
         paddingHorizontal:12
