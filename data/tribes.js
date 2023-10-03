@@ -12,7 +12,8 @@ export const TRIBES = [
         tribeAccountStatus: 'Premium',
         tribeIntrests : [
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -30,7 +31,8 @@ export const TRIBES = [
             'Night life',
             'Concerts'
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -44,7 +46,8 @@ export const TRIBES = [
         tribeAccountStatus: 'Premium',
         tribeIntrests : [
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -58,7 +61,8 @@ export const TRIBES = [
         tribeAccountStatus: 'Free',
         tribeIntrests : [
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -75,7 +79,8 @@ export const TRIBES = [
             'Pets',
             'Dogs',
             'Adventure',
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -89,7 +94,8 @@ export const TRIBES = [
         tribeAccountStatus: 'Free',
         tribeIntrests : [
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
     {
@@ -103,7 +109,8 @@ export const TRIBES = [
         tribeAccountStatus: 'Free',
         tribeIntrests : [
  
-        ]
+        ],
+        tribeMembers: 0
     },
 
 ]

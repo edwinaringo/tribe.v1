@@ -33,7 +33,7 @@ export const bottomTabIcons = [
 
     }
 ]
-const BottomTabs = () => {
+const BottomTabs = ({tribes, username}) => {
 
     const navigation = useNavigation()
 
@@ -93,7 +93,7 @@ const BottomTabs = () => {
         navigation.navigate('HomeScreen')
         break;
       case 'Explore' :
-        navigation.navigate('ExploreScreen')
+        navigation.navigate('ExploreScreen', {tribes})
         break;
 
       // case 'WeLive' :
@@ -105,7 +105,7 @@ const BottomTabs = () => {
       //   break;
       
       case 'Profile' :
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {username})
         break;
 
         default:

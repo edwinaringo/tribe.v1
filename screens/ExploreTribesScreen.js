@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import CategorySection from '../components/explore/CategorySection'
 import ExploreTribesPosts from '../components/exploreTribes/ExploreTribesPosts'
 import { TRIBES } from '../data/tribes'
-import { getDocs, collection, getFirestore, collectionGroup } from 'firebase/firestore'
+import { getDocs, collection, getFirestore, collectionGroup, orderBy } from 'firebase/firestore'
 import { FIRESTORE_DB } from '../firebase'
 
 
@@ -22,11 +22,13 @@ const ExploreTribesScreen = ({navigation}) => {
       try {
         const collectionRef = collectionGroup(db, 'tribes')
         console.log("Starting process")
+        orderBy('createdAt', 'desc')
 
         const querySnapshot = await getDocs(collectionRef)        
-        const tribeData = querySnapshot.docs.map((doc) => doc.data())
-        console.log("Query Snapshot:", querySnapshot.docs.map((doc) => doc.data()))
-
+        const tribeData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
         setTribes(tribeData);
         console.log("Here are your tribes:", tribeData)
       } catch (error) {

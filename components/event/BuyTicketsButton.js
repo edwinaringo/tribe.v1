@@ -15,7 +15,7 @@ const BuyTicketsButton = ({ route }) => {
 
         <View style={styles.eventPriceStyle}>
             <Pressable titleSize={10} style={styles.ticketButton}>
-                <Text style={{fontSize:17,  color:'white', fontFamily:'Font'}}>Get Tickets</Text>
+                <Text style={{fontSize:17, color:'white', fontFamily:'Font'}}>Get Tickets</Text>
             </Pressable>
             <Text style={styles.rateStyle}>KES {post.eventRate}</Text>
             <Text style={styles.dateStyle}>{post.date}</Text>

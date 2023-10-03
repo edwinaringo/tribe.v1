@@ -33,7 +33,7 @@ const FormikTribeUploader = ({navigation}) => {
     // const navigation = useNavigation()
 
  
-    useEffect(() => {
+    useEffect(() => { 
         const getUsername = async () => {
           const user = auth.currentUser;
           if (user) {
@@ -61,17 +61,17 @@ const FormikTribeUploader = ({navigation}) => {
         tribeLocation, 
         tribeMembershipFee,
         tribePrivacy, 
-        ) => {
+      ) => {
         const user = auth.currentUser;
         if (!user) {
           // Handle user not logged in
           console.log('User is not logged in.');
           return;
         }
-    
-        const tribeRef = collection(db, 'users', user.email, 'tribes');
+      
+        const tribesRef = collection(db, 'tribes'); // Reference to the 'tribes' collection.
         try {
-          await addDoc(tribeRef, {
+          await addDoc(tribesRef, { // Add a new document to the 'tribes' collection.
             tribeImageUrl: PLACEHOLDER_IMG,
             tribeName: tribeName,
             tribeDescription: tribeDescription,
@@ -93,14 +93,22 @@ const FormikTribeUploader = ({navigation}) => {
           console.error('Error uploading tribe:', error);
         }
       };
+      
 
 
 
   return (
     <Formik
-  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'', tribeMembershipFee:'', tribePrivacy:''}}
+  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'', tribeMembershipFee:'', tribePrivacy:'', tribeMembers:0}}
         onSubmit={(values) => {
-          uploadTribeToFirebase(values.tribeImageUrl, values.tribeName, values.tribeDescription, values.tribeLocation, values.tribeMembershipFee, values.tribePrivacy)
+          uploadTribeToFirebase(
+            values.tribeImageUrl, 
+            values.tribeName, 
+            values.tribeDescription, 
+            values.tribeLocation, 
+            values.tribeMembershipFee, 
+            values.tribePrivacy, 
+            values.tribeMembers)
         }}
         validationSchema={uploadTribeSchema}
         validateOnMount={true}
