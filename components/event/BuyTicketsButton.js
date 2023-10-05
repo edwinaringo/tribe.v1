@@ -14,8 +14,8 @@ const BuyTicketsButton = ({ route }) => {
         <Divider width={1} orientation="vertical" />
 
         <View style={styles.eventPriceStyle}>
-            <Pressable titleSize={20} style={styles.ticketButton}>
-                <Text style={{fontSize:17,  color:'white'}}>Get Tickets</Text>
+            <Pressable titleSize={10} style={styles.ticketButton}>
+                <Text style={{fontSize:17, color:'white', fontFamily:'Font'}}>Get Tickets</Text>
             </Pressable>
             <Text style={styles.rateStyle}>KES {post.eventRate}</Text>
             <Text style={styles.dateStyle}>{post.date}</Text>
@@ -35,10 +35,10 @@ const styles = StyleSheet.create ({
 
     ticketButton: {
         marginTop:10, 
-        backgroundColor: '#00B292', 
+        backgroundColor: '#c43d1c', 
         minHeight:49,
         borderRadius:10,
-        borderColor:'black', 
+        borderColor:'white', 
         borderWidth:1.5,
         width:130,
         justifyContent:'center',
@@ -46,19 +46,22 @@ const styles = StyleSheet.create ({
         marginLeft:20
     },
 
+    // orange= '#7ec6c7', black= '#1d2b39' , tribal ='#c43d1c'
+
     dateStyle: {
-        color:'white',
+        color:'black',
         left:290,
-        bottom:40,
+        bottom:45,
         fontSize:16,
+        fontFamily: 'Font'
     },
 
     rateStyle: {
-        color: 'white',
+        color: 'black',
         left:290,
-        bottom:50,
+        bottom:45,
         fontSize:18,
-        fontWeight:'500'
+        fontFamily: 'BoldFont'
 
 
     }

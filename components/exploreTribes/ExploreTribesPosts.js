@@ -5,12 +5,21 @@ import { Divider } from 'react-native-elements'
 import { POSTS } from '../../data/posts'
 import { TRIBES } from '../../data/tribes'
 
-const ExploreTribesPosts = ({tribe}) => {
+const ExploreTribesPosts = ({ tribe }) => {
+
+    const navigation = useNavigation()
+
+    const handlePostPress = () => {
+      navigation.navigate('TribeDetailsScreen', {tribe})
+    }
 
   return (
-    <View style = {{marginBottom:0}}>
-        <TribeImage tribe={tribe}/>
-    </View>
+    <TouchableOpacity onPress={handlePostPress}>
+         <View style = {{marginBottom:0}}>
+            <TribeImage tribe={tribe}/>
+        </View>
+    </TouchableOpacity>
+   
   )
 
   // return (
@@ -22,7 +31,7 @@ const ExploreTribesPosts = ({tribe}) => {
   // )
 }
 
-const TribeImage = ({tribe})=> (
+const TribeImage = ({ tribe })=> (
   
     <View style={styles.container}>
         <View style={styles.item}>
@@ -30,7 +39,7 @@ const TribeImage = ({tribe})=> (
                 <View style={styles.tribeDetails}>
                     <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>{tribe.tribeName}</Text>
                     <Text style={{color:"#3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>{tribe.tribeLocation}</Text>
-                    <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>232 members</Text>
+                    <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>{tribe.tribeMembers.length.toLocaleString('en')} members</Text>
                     <Text style={{color:"#3F3F3F", bottom:5, top:10, marginLeft:3}}>{tribe.tribeMembershipFee} membership fee</Text>
                 </View>
         </View>

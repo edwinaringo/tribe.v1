@@ -6,7 +6,7 @@ import { TOPRATED } from '../../data/topRatedData'
 const Rated = () => {
   return (
         <View style={{marginBottom: 13 }}>
-        <Text style={{color:'white', marginBottom:10, marginTop:23, fontSize:20, paddingLeft:8}}>Top Rated</Text>
+        <Text style={{color:'black', marginBottom:1, marginTop:23, fontSize:20, paddingLeft:8, fontFamily: 'BoldFont'}}>Top Rated</Text>
     <ScrollView 
     horizontal 
     showsHorizontalScrollIndicator={false}>

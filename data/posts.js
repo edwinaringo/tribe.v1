@@ -9,6 +9,7 @@ export const POSTS = [
         eventName: "Kizomba after work at Britam",
         tribeName: "Britam",
         going: '34 going',
+        likes: 20,
         eventLocation: 'Britam Towers, Nairobi',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
     },
@@ -20,6 +21,7 @@ export const POSTS = [
         eventName: "Blankets and wine",
         tribeName: "KCB",
         going: '10,000 going',
+        likes: 20,
         eventLocation: 'Britam Towers, Nairobi',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
 
@@ -32,6 +34,7 @@ export const POSTS = [
         eventName: "UoN Innovation Week",
         tribeName: "University of Nairobi Science",
         going: '200 going',
+        likes: 20,
         eventLocation: 'Britam Towers, Nairobi',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
 
@@ -44,6 +47,7 @@ export const POSTS = [
         eventName: "Moringa Career Fair",
         tribeName: "Moringa Hackers",
         going: '300 going',
+        likes: 20,
         eventLocation: 'Visa Oshwal Centre, Nairobi',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
 
@@ -56,6 +60,7 @@ export const POSTS = [
         eventName: "Magical Kenya Open",
         tribeName: "Absa",
         going: '20,000 going',
+        likes: 20,
         eventLocation: 'Muthaiga Golf Club, Nairobi',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
 
@@ -68,6 +73,7 @@ export const POSTS = [
         eventName: "IIK Golf Tournament",
         tribeName: "Junior Golfers",
         going: '10,000 going',
+        likes: 20,
         eventLocation: 'Limuru Country Club, Kiambu',
         eventDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla sapien, rhoncus sit amet semper vel, tristique vel turpis. Praesent a sagittis nunc, vitae auctor nunc. Nulla fringilla, massa eu interdum vehicula, purus ex elementum leo, vitae varius ante orci sodales leo. Nam ut mattis justo, eget iaculis massa. Vivamus ultricies, est in lobortis venenatis, libero felis efficitur sapien, vitae porta urna sem vitae nisl. Mauris lobortis orci quis dolor elementum luctus. Quisque at consectetur purus, iaculis lacinia turpis. Quisque maximus interdum massa, quis rhoncus orci porta vel. Nam fermentum a nisi in gravida. Duis molestie cursus diam ut feugiat. Mauris placerat efficitur sodales. Integer elit ex, pharetra vel neque vitae, vulputate sollicitudin metus.',
     }

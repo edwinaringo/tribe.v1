@@ -6,15 +6,15 @@ const Followers = () => {
     <View>
         <View style={styles.followersContainer}>
             <View style={styles.followerNumber}>
-                <Text style={{color:'white', fontSize:16, fontWeight:'bold'}}>3450</Text>
-                <Text style={{color:'white',fontSize:16, fontWeight:'bold'}}>203</Text>
-                <Text style={{color:'white',fontSize:16, fontWeight:'bold'}}>5</Text>
+                <Text style={{color:'black', fontSize:16, fontFamily:'BoldFont', left:15}}>3450</Text>
+                <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont'}}>203</Text>
+                <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont', right:15}}>5</Text>
             </View>
 
             <View style={styles.followersText}>
-                <Text style={{color:'white'}}>Followers</Text>
-                <Text style={{color:'white'}}>Following</Text>
-                <Text style={{color:'white'}}>Tribes</Text>
+                <Text style={{color:'black', fontFamily:'Font', fontSize:16}}>Followers</Text>
+                <Text style={{color:'black',fontFamily:'Font', fontSize:16}}>Following</Text>
+                <Text style={{color:'black',fontFamily:'Font', fontSize:16}}>Tribes</Text>
             </View>  
         </View>
 
@@ -34,7 +34,7 @@ const Followers = () => {
 
 const styles=StyleSheet.create({
     followersContainer:{
-        marginTop:10,
+        marginTop:13,
         borderRadius:100,
         margin:10,
         alignContent:'space-between',
@@ -51,15 +51,16 @@ const styles=StyleSheet.create({
     buttonsText:{
         color:'white',
         fontSize:15,
+        fontFamily:'Font'
     },
 
     editProfile: {
         marginTop:1, 
-        backgroundColor: 'black', 
+        backgroundColor: '#1d2b39', 
         height:40,
         width:130,
         borderRadius:7,
-        borderColor:'white', 
+        borderColor:'black', 
         borderWidth:1.5,
         alignContent:'space-between',
         justifyContent:'center',
@@ -71,7 +72,7 @@ const styles=StyleSheet.create({
 
     findTribes:{
         marginTop:1, 
-        backgroundColor: 'black', 
+        backgroundColor: '#1d2b39', 
         height:40,
         width:130,
         borderRadius:7,
@@ -89,11 +90,12 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         fontSize:30,
+        fontFamily:'Font',
         alignItems:'center',
         alignContent:'center',
         marginLeft:50,
         marginRight:50,
-        marginBottom:10
+        marginBottom:4,
     },
 
     followersText:{

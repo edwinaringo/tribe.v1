@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     },
 
     categoryEventsText: {
-      color:'white',
+      color:'black',
       fontSize: 19,
     
     },
     categoryTribesText: {
-      color:'white',
+      color:'black',
       fontSize:19,
     }
      

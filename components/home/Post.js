@@ -28,10 +28,10 @@ const PostImage = ({post})=> (
             <Image source ={{ uri: post.imageUrl }} style={styles.post}/>
               <Text style={styles.eventPrice}>{post.eventRate}</Text>
                 <View style={styles.postDetails}>
-                    <Text style={{color:"black", fontSize:20}}> {post.eventName}</Text>
-                    <Text style={{color:"black", textAlign:"right", marginRight:4, top:36, fontSize:16, right:10}}> {post.tribeName}</Text>
-                    <Text style={{color:"black", bottom:10}}> {post.going}</Text>
-                    <Text style={{color:"black", bottom:3}}> {post.date}</Text>
+                    <Text style={{color:"black", fontSize:20, fontFamily:'BoldFont'}}> {post.eventName}</Text>
+                    <Text style={{color:"black", textAlign:"right", marginRight:4, top:36, fontSize:16, fontFamily:'Font', right:10}}> {post.tribeName}</Text>
+                    <Text style={{color:"black", bottom:10, fontFamily: 'Font'}}> {post.going}</Text>
+                    <Text style={{color:"black", fontFamily:'BoldFont', bottom:3}}> {post.date}</Text>
 
                 </View>
         </View>
@@ -52,11 +52,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
         alignContent:"center",
         alignItems:"center",
+        fontFamily:'BoldFont'
     },
 
     container: {
         width:"100%",
-        marginTop:30,
+        marginTop:15,
         marginBottom:80,
         height: 400
  

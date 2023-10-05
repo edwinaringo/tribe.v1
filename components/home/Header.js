@@ -23,14 +23,14 @@ const Header = ({navigation}) => {
         <TouchableOpacity onPress={handleSignOut}>
             <Image 
                 style={styles.logo} 
-                source={require('../../assets/header-logo.png')}
+                source={require('../../assets/tribe7.png')}
             />
         </TouchableOpacity>
 
         <View style={styles.iconsContainer}>
             <TouchableOpacity onPress={()=> navigation.push('CreateTribeScreen')}>
                 <Image
-                  source={require('../../assets/addIcon2.png')}
+                  source={require('../../assets/add3.png')}
 
                 style={styles.icon}/>
             </TouchableOpacity>
@@ -40,7 +40,7 @@ const Header = ({navigation}) => {
                 </View>
 
                 <Image
-                  source={require('../../assets/messagingIcon.png')}
+                  source={require('../../assets/message.png')}
 
                 style={styles.icon}/>
             </TouchableOpacity>
@@ -71,7 +71,7 @@ iconsContainer:{
     icon: {
         width:30,
         height:30,
-        marginLeft:10,
+        marginLeft:20,
         resizeMode:'contain',
     },
 

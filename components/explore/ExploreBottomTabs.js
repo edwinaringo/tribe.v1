@@ -6,6 +6,8 @@ import ExploreScreen from '../../screens/ExploreScreen'
 
 
 export const bottomTabIcons = [
+
+  
     {
         name:'Home',
         active: 'https://cdn.iconfinder.com/stored_data/1171726/128/png?token=1690283758-GuvLgfMvTBDQGH6QxiDNK5Kvd7ah69S%2BrtlsV7UaxlA%3D',
@@ -34,6 +36,8 @@ export const bottomTabIcons = [
     }
 ]
 const BottomTabs = () => {
+
+  
 
     const navigation = useNavigation()
 
@@ -69,7 +73,7 @@ const BottomTabs = () => {
       //   break;
       
       case 'Profile' :
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', { username })
         break;
 
         default:

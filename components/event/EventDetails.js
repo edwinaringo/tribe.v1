@@ -15,7 +15,7 @@ const EventDetails = ({ route }) => {
                     <Text style={styles.eventNameStyle}>{post.eventName}</Text>
                 </View>
           </View> 
-          <Text style={{color:'white', fontSize:20, fontWeight:'bold', marginTop:10, marginLeft:12}}>Description</Text>
+          <Text style={{color:'black', fontSize:20, fontFamily: 'BoldFont', marginTop:10, marginLeft:12}}>Description</Text>
           <Text style={styles.eventDescriptionStyle}>{post.eventDescription}</Text>
         </View>
     )
@@ -23,8 +23,6 @@ const EventDetails = ({ route }) => {
   
   const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'black',
       },
 
       eventImageContainer:{
@@ -43,15 +41,15 @@ const EventDetails = ({ route }) => {
         fontSize: 22,
         marginBottom:10,
         marginTop: 300,
-        fontWeight:'bold',
         marginLeft:15,
+        fontFamily:'BoldFont'
       },
 
       eventDescriptionStyle: {
-        color: 'white',
-        fontSize: 13.8,
+        color: 'black',
         margin:12,
-        marginTop:15,
+        marginTop:10,
+        fontFamily:'Font'
       }
 
      

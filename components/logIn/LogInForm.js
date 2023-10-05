@@ -120,7 +120,7 @@ const LogInForm = ({navigation}) => {
             <View style={styles.signUpContainer}>
                 <Text>Dont have an account?</Text>
                 <TouchableOpacity onPress={() => navigation.push('SignUpScreen')}>
-                    <Text style={{color:'#01A4A4'}}> Sign Up</Text>
+                    <Text style={{color:'#c43d1c'}}> Sign Up</Text>
                 </TouchableOpacity>
             </View>
             </>
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
 
     buttons: (isValid)=> ({
-        backgroundColor: isValid ? '#01A4A4' : '#69A6A6',
+        backgroundColor: isValid ? '#c43d1c' : '#c43d1c',
         alignItems:'center',
         justifyContent:'center',
         minHeight:42,

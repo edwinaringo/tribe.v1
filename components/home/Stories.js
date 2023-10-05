@@ -6,15 +6,15 @@ import { USERS } from '../../data/users'
 
 const Stories = () => {
   return (
-    <View style={{marginBottom: 13 }}>
-            <Text style={{color:'white', marginBottom:10, marginTop:0, fontSize:20, paddingLeft:8}}>Happening Now</Text>
+    <View style={{marginBottom: 10 }}>
+            <Text style={{color:'black', marginBottom:10, marginTop:0, fontSize:20, paddingLeft:8, fontFamily:'BoldFont'}}>Happening Now</Text>
         <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}>
             {USERS.map((story, index) => (
               <View key={index} style={{alignItems:'center'}}>
                 <Image source={{ uri:story.image }} style={styles.story}/>
-                <Text style={{color:'white'}}>{
+                <Text style={{color:'black', fontFamily:'Font'}}>{
                   story.user.length > 11 
                   ?story.user.slice(0,10).toLowerCase() +'...'
                   :story.user.toLowerCase()}
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius:50,
     marginLeft:12,
     borderWidth:3,
-    borderColor: '#00B292'
+    borderColor: '#c43d1c'
   },
 
 })

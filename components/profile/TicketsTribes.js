@@ -1,17 +1,17 @@
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
 
-const TICKETS= 'https://cdn.iconfinder.com/stored_data/1171769/128/png?token=1690284501-EKBRiDDMLBj5Az0%2FpMuK%2BI%2Fi1Zkq9lYyPxuf0%2FcG0as%3D'
-const CREATE_TRIBE = 'https://cdn.iconfinder.com/stored_data/1186035/128/png?token=1690987776-Szh9yRELmi4JrmTHZTUg7mmckjrCaQgibYbKawzwduY%3D'
-const TRIBES = 'https://cdn.iconfinder.com/stored_data/1186039/128/png?token=1690987960-HWfUgRJzoHyeMy%2F8oMFbyqtBVbYnZSQr4tilj6%2BR3YQ%3D'
-const BOOKED_EVENTS = 'https://cdn.iconfinder.com/stored_data/1186046/128/png?token=1690988122-pSkAMbwjpoGLG1KjBIYQdk82fXe1h06wA4dnEidEApc%3D'
+const TICKETS= 'https://img.icons8.com/?size=50&id=18638&format=png'
+const CREATE_TRIBE = 'https://cdn1.iconfinder.com/data/icons/content-10/24/usergroup-plus-64.png'
+const TRIBES = 'https://cdn1.iconfinder.com/data/icons/content-10/24/usergroup-64.png'
+const BOOKED_EVENTS = 'https://cdn0.iconfinder.com/data/icons/business-office-1-7/55/13-64.png'
 
 
 const TicketsTribes = ({navigation}) => {
   return (
     <View>
         <View>
-            <Text style={{color:'white',fontSize:17, fontWeight:'bold', marginTop:10, marginLeft:26}}>My Tickets</Text>
+            <Text style={{color:'black',fontSize:17, fontFamily:'BoldFont', marginTop:10, marginLeft:26}}>My Tickets</Text>
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -22,7 +22,7 @@ const TicketsTribes = ({navigation}) => {
         </View>
 
         <View>
-            <Text style={{color:'white',fontSize:17, fontWeight:'bold', marginTop:20, marginLeft:26}}>My Tribes</Text>
+            <Text style={{color:'black',fontSize:17, fontFamily:'BoldFont', marginTop:20, marginLeft:26}}>My Tribes</Text>
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -40,7 +40,7 @@ const TicketsTribes = ({navigation}) => {
         </View>
 
         <View>
-            <Text style={{color:'white',fontSize:17, fontWeight:'bold', marginTop:20, marginLeft:26}}>Upcoming Events</Text>
+            <Text style={{color:'black',fontSize:17, fontFamily:'BoldFont', marginTop:20, marginLeft:26}}>Upcoming Events</Text>
         </View>
 
         <View style={styles.buttonsContainer}>
@@ -63,7 +63,7 @@ const styles =StyleSheet.create({
 
     ticketsContainer:{
         borderWidth:1,
-        borderColor:'white',
+        borderColor:'black',
         width:380,
         height:48,
         marginTop:5,
@@ -77,9 +77,10 @@ const styles =StyleSheet.create({
     },
 
     ticketsText:{
-        color:'white',
+        color:'black',
         fontSize:16,
-        marginLeft:20
+        marginLeft:20,
+        fontFamily: 'Font'
  
     },
 

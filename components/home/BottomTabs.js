@@ -8,32 +8,32 @@ import ExploreScreen from '../../screens/ExploreScreen'
 export const bottomTabIcons = [
     {
         name:'Home',
-        active: 'https://cdn.iconfinder.com/stored_data/1171726/128/png?token=1690283758-GuvLgfMvTBDQGH6QxiDNK5Kvd7ah69S%2BrtlsV7UaxlA%3D',
-        inactive: 'https://cdn.iconfinder.com/stored_data/1171733/128/png?token=1690283866-Rye%2B%2Br2ORFc750Ec7xaRLfza6mvVWdXP8pm8GUXga2c%3D',
+        active: 'https://cdn0.iconfinder.com/data/icons/phosphor-fill-vol-3/256/house-fill-64.png',
+        inactive: 'https://cdn0.iconfinder.com/data/icons/set-app-incredibles/24/Home-01-64.png',
     }, 
     {
         name:'Explore',
-        active: 'https://cdn.iconfinder.com/stored_data/1171782/128/png?token=1690284678-kLZes5nAE7L514oAACqAkiX1kl2xJkOp03Wa1Hp3LdU%3D',
-        inactive: 'https://cdn.iconfinder.com/stored_data/1171647/128/png?token=1690281653-rPhxiubF0je1qNYHP%2B7qFodEW5gJRWUrmaNt9vJd3mc%3D',
+        active: 'https://cdn1.iconfinder.com/data/icons/ionicons-fill-vol-2/512/search-64.png',
+        inactive: 'https://cdn2.iconfinder.com/data/icons/user-interface-169/32/search-64.png',
     },
     {
         name:'WeLive',
-        active: 'https://cdn.iconfinder.com/stored_data/1171752/128/png?token=1690284233-WBMC0H4d1pUXcXpKT%2BvNeVHmGD1P7dbvTbcC6dhrsII%3D',
-        inactive: 'https://cdn.iconfinder.com/stored_data/1171747/128/png?token=1690284191-RCM5fkstAAJLLp%2BuLUGljpjXxGagCzpOJVeZFELGEf8%3D'
+        active: 'https://cdn4.iconfinder.com/data/icons/map-and-location-1-2/48/1-64.png',
+        inactive: 'https://cdn1.iconfinder.com/data/icons/ui-essential-17/32/UI_Essential_Outline_2_essential-app-ui-location-map-pin-22-64.png'
     },
     {
         name:'Tickets',
-        active: 'https://cdn.iconfinder.com/stored_data/1171770/128/png?token=1690284528-r3c%2BxtfwbfOKSTqlLInVSEIL9MwSuo7e%2B8s%2BRxE6vfw%3D',
-        inactive: 'https://cdn.iconfinder.com/stored_data/1171769/128/png?token=1690284501-EKBRiDDMLBj5Az0%2FpMuK%2BI%2Fi1Zkq9lYyPxuf0%2FcG0as%3D',
+        active: 'https://img.icons8.com/?size=50&id=18667&format=png',
+        inactive: 'https://img.icons8.com/?size=50&id=18638&format=png',
     },
     {
         name:'Profile',
-        active: 'https://cdn.iconfinder.com/stored_data/1171779/128/png?token=1690284639-lo1zMyZd2SCQRGOsB5zAN5Rivllj0G3pswjqP4766aI%3D',
-        inactive: 'https://cdn.iconfinder.com/stored_data/1171774/128/png?token=1690284578-iWzaLXzpxl2qsBDIESLQNn5NXpZYU0nWfLe26p%2B55q8%3D',
+        active: 'https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/user-64.png',
+        inactive: 'https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-64.png',
 
     }
 ]
-const BottomTabs = () => {
+const BottomTabs = ({tribes, username}) => {
 
     const navigation = useNavigation()
 
@@ -93,7 +93,7 @@ const BottomTabs = () => {
         navigation.navigate('HomeScreen')
         break;
       case 'Explore' :
-        navigation.navigate('ExploreScreen')
+        navigation.navigate('ExploreScreen', {tribes})
         break;
 
       // case 'WeLive' :
@@ -105,7 +105,7 @@ const BottomTabs = () => {
       //   break;
       
       case 'Profile' :
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {username})
         break;
 
         default:
@@ -116,7 +116,7 @@ const BottomTabs = () => {
   
     return (
     <Animated.View style={[styles.wrapper, { transform: [{ translateY: translateY.interpolate({ inputRange: [0, 1], outputRange: [0, 50] }) }] }]}>
-      <Divider width={1} orientation="vertical" />
+      <Divider width={2} orientation="vertical" />
       <View style={styles.container}>
         {bottomTabIcons.map((icon, index) => (
           <Icon key={index} icon={icon} />
