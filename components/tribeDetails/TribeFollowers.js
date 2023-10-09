@@ -73,15 +73,20 @@ const TribeFollowers = ({ route, navigation }) => {
 
     <View>
         <View style={styles.followersContainer}>
+
+        <View style={styles.followersText}>
+                <Text style={{color:'black', fontFamily:'BoldFont', fontSize:16}}>Members</Text>
+                <Text style={{color:'black',fontFamily:'BoldFont', fontSize:16}}>Events</Text>
+                <Text style={{color:'black',fontFamily:'BoldFont', fontSize:16}}>Privacy</Text>
+            </View>  
+
             <View style={styles.followerNumber}>
-                <Text style={{color:'black', fontSize:16, fontFamily:'BoldFont', left:55}}>{tribe.tribeMembers.length.toLocaleString('en')}</Text>
-                <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont', right:55}}>5</Text>
+                <Text style={{color:'black', fontSize:16, fontFamily:'Font', left:15}}>{tribe.tribeMembers.length.toLocaleString('en')}</Text>
+                <Text style={{color:'black',fontSize:16, fontFamily:'Font'}}>5</Text>
+                <Text style={{color:'black',fontSize:16, fontFamily:'Font', right:15}}>{tribe.tribePrivacy}</Text>
+
             </View>
 
-            <View style={styles.followersText}>
-                <Text style={{color:'black', fontFamily:'Font', fontSize:16}}>Members</Text>
-                <Text style={{color:'black',fontFamily:'Font', fontSize:16}}>Events</Text>
-            </View>  
         </View>
 
         <FollowButton tribe={(tribe)} handleJoin={() => handleJoin(tribe)} />
@@ -158,8 +163,8 @@ const styles=StyleSheet.create({
     followersText:{
         flexDirection:'row',
         justifyContent:'space-between',
-        marginLeft:90,
-        marginRight:90,
+        marginLeft:50,
+        marginRight:50,
         marginBottom:10,
         alignItems:'center'
     },

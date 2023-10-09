@@ -1,7 +1,10 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 
-const Followers = () => {
+const Followers = ({route}) => {
+
+    // const { user } = route.params
+
   return (
     <View>
         <View style={styles.followersContainer}>

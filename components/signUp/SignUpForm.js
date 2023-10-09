@@ -15,7 +15,7 @@ const SignUpForm = ({navigation}) => {
     const db = getFirestore(FIRESTORE_DB)
 
   const SignupFormSchema = Yup.object().shape({
-    userName: Yup.string().required().min(2, 'A user name cannot be less than 2 characters'),
+    username: Yup.string().required().min(2, 'A user name cannot be less than 2 characters'),
     email:Yup.string().email().required('An email is required'),
     password: Yup.string().required().min(6, 'Your password cannot be less than 6 characters'),
     age: Yup.number().required().min(13, 'You have to be 13 and above to use this application'),
@@ -70,9 +70,9 @@ const SignUpForm = ({navigation}) => {
     <ScrollView style = {styles.wrapper}>
 
     <Formik
-        initialValues={{userName: '', email:'', password: '', age: '', phoneNumber: '', gender: ''}}
+        initialValues={{username: '', email:'', password: '', age: '', phoneNumber: '', gender: ''}}
         onSubmit={values =>{
-            onSignup(values.email, values.password, values.userName)
+            onSignup(values.email, values.password, values.username)
         }}
         validationSchema={SignupFormSchema}
         validationOnMount={true}
@@ -110,7 +110,7 @@ const SignUpForm = ({navigation}) => {
             styles.inputField, 
             {
                 borderColor: 
-                1 > values.userName.length || values.userName.length >= 2
+                1 > values.username.length || values.username.length >= 2
                  ? '#ccc' 
                  : 'red',
                 },
@@ -123,9 +123,9 @@ const SignUpForm = ({navigation}) => {
                 // keyboardType='default'
                 textContentType='username'
                 autoFocus={true}
-                onChangeText={handleChange('userName')}
-                onBlur={handleBlur('userName')}
-                value={values.userName}
+                onChangeText={handleChange('username')}
+                onBlur={handleBlur('username')}
+                value={values.username}
             />
         </View>
 

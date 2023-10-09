@@ -33,9 +33,13 @@ export const bottomTabIcons = [
 
     }
 ]
-const BottomTabs = ({tribes, username}) => {
+const BottomTabs = ({ user }) => {
+
+  // const { user } = route.params
+
 
     const navigation = useNavigation()
+    
 
     const [activeTab, setActiveTab] = useState('Home');
     const [bottomTabVisible, setBottomTabVisible] = useState(true)
@@ -93,7 +97,7 @@ const BottomTabs = ({tribes, username}) => {
         navigation.navigate('HomeScreen')
         break;
       case 'Explore' :
-        navigation.navigate('ExploreScreen', {tribes})
+        navigation.navigate('ExploreScreen')
         break;
 
       // case 'WeLive' :
@@ -105,7 +109,7 @@ const BottomTabs = ({tribes, username}) => {
       //   break;
       
       case 'Profile' :
-        navigation.navigate('ProfileScreen', {username})
+        navigation.navigate('ProfileScreen', { user })
         break;
 
         default:

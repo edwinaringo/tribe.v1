@@ -7,7 +7,7 @@ const TRIBES = 'https://cdn1.iconfinder.com/data/icons/content-10/24/usergroup-6
 const BOOKED_EVENTS = 'https://cdn0.iconfinder.com/data/icons/business-office-1-7/55/13-64.png'
 
 
-const TicketsTribes = ({navigation}) => {
+const TicketsTribes = ({navigation, route}) => {
   return (
     <View>
         <View>

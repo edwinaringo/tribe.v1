@@ -34,7 +34,7 @@ const Header = ({navigation}) => {
 
                 style={styles.icon}/>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.push('TribeLogInScreen')}>
                 <View style={styles.unreadBadge}>
                     <Text style={styles.unreadBadgeText}>9</Text>
                 </View>

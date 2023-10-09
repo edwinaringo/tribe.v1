@@ -13,6 +13,9 @@ import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 import ExploreTribesScreen from './ExploreTribesScreen'
 import EventDetails from '../components/event/EventDetails'
 import TribeDetailsScreen from './TribeDetailsScreen'
+import TribeOwnersHomeScreen from './TribeOwnersHomeScreen'
+import CreateEventScreen from './CreateEventScreen'
+import TribeLogInScreen from './TribeLogInScreen'
 
 
 const Stack = createStackNavigator()
@@ -25,7 +28,7 @@ const screenOptions = {
 export const SignedInStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='HomeScreen' 
+            initialRouteName= 'HomeScreen' 
             screenOptions={screenOptions}
             >
                 <Stack.Screen name = 'HomeScreen' component={HomeScreen} />
@@ -36,6 +39,10 @@ export const SignedInStack = () => (
                 <Stack.Screen name = 'ExploreTribesScreen' component={ExploreTribesScreen}/>
                 <Stack.Screen name = 'EventDetails' component={EventDetails}/>
                 <Stack.Screen name = 'TribeDetailsScreen' component={TribeDetailsScreen} />
+                <Stack.Screen name = 'TribeOwnersHomeScreen' component={TribeOwnersHomeScreen} />
+                <Stack.Screen name = 'CreateEventScreen' component={CreateEventScreen} />
+                <Stack.Screen name = 'TribeLogInScreen' component={TribeLogInScreen} />
+
         </Stack.Navigator>
     </NavigationContainer>
  

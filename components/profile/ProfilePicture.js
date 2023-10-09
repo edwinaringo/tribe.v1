@@ -6,13 +6,15 @@ const PROFILE_PICTURE =
 const TOKEN_ICON =
   'https://cdn3.iconfinder.com/data/icons/font-awesome-solid/512/fire-flame-curved-256.png';
 
-const ProfilePicture = ({ username }) => {
+const ProfilePicture = ({route}) => {
+
+  const { user } = route.params
+
   return (
     <View style={styles.profileContainer}>
       <Image source={{ uri: PROFILE_PICTURE }} style={styles.profilePicture} />
 
-      {/* Display the username */}
-      <Text style={styles.profileText}>{username}</Text>
+      <Text style={styles.profileText}></Text>
 
       <Pressable titleSize={25} style={styles.tokens}>
         <Image source={{ uri: TOKEN_ICON }} style={styles.tokenIcon} />

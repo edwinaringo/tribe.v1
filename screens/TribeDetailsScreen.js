@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { TRIBES } from '../data/tribes'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -8,6 +8,7 @@ import TribeFollowers from '../components/tribeDetails/TribeFollowers'
 import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
 import {  getFirestore, collection, collectionGroup, getDocs } from 'firebase/firestore'
+import TribeDescription from '../components/tribeDetails/TribeDescription'
 
 
 const TribeDetailsScreen = ({navigation, route}) => {
@@ -16,6 +17,7 @@ const TribeDetailsScreen = ({navigation, route}) => {
 
 
   const selectedTribe = route.params?.tribe || TRIBES[0];
+  
   console.log('Selected Tribe:', selectedTribe);
 
   // useEffect(()=> {
@@ -31,8 +33,12 @@ const TribeDetailsScreen = ({navigation, route}) => {
     <SafeAreaView style = {styles.container}>
 
       <Header tribe={selectedTribe} route={route}/>
-      <TribeProfilePicture tribe={selectedTribe} navigation={navigation} route={route}/>
-      <TribeFollowers tribe={selectedTribe} navigation={navigation} route={route}/>
+      <ScrollView>
+        <TribeProfilePicture tribe={selectedTribe} navigation={navigation} route={route}/>
+        <TribeFollowers tribe={selectedTribe} navigation={navigation} route={route}/>
+        <TribeDescription tribe={selectedTribe} navigation={navigation} route={route} />
+      </ScrollView>
+      
 
     </SafeAreaView>
       

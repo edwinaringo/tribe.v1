@@ -37,7 +37,7 @@ const styles= StyleSheet.create({
         alignContent:'center',
         justifyContent:'center',
         alignItems:'center',
-        marginTop:40,
+        marginTop:25,
     },
 
     profileText:{

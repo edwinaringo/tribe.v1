@@ -11,8 +11,8 @@ import EventScreen from './EventScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from '../components/home/BottomTabs'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
-import {  getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'; 
+import {  getFirestore, doc, getDoc, collection, getDocs, orderBy, query, where } from 'firebase/firestore'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'; 
 import ExploreScreen from './ExploreScreen'
 
 
@@ -22,27 +22,43 @@ const HomeScreen = ({navigation}) => {
   const db = getFirestore(FIRESTORE_DB)
   const auth = getAuth(FIREBASE_AUTH); 
   const [tribes, setTribes] = useState([]);
-  const [username, setUsername] = useState('');
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const user = auth.currentUser;
-        if (user) {
-          const userDocRef = doc(db, 'users', user.uid);
-          const userDocSnap = await getDoc(userDocRef);
-          if (userDocSnap.exists()) {
-            const userData = userDocSnap.data();
-            setUsername(userData.username || ''); // Set the username
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
+    // Get the current authenticated user
+    const auth = getAuth(FIREBASE_AUTH);
+  
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log('Current user:', user);
 
-    fetchUserData()
-  }, [auth, db])
+        const userDocRef = doc(db, 'users', user.id);
+  
+        getDoc(userDocRef)
+          .then((userDoc) => {
+            if (userDoc.exists()) {
+              // User document exists, you can access its data
+              const userData = userDoc.data();
+              console.log('User data:', userData);
+  
+            } else {
+              // User document does not exist
+              console.log('User document does not exist');
+            }
+          })
+          .catch((error) => {
+            console.error('Error fetching user document:', error);
+          });
+      } else {
+        // User is signed out
+        console.log('User is signed out');
+      }
+    });
+  
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
     // const fetchTribes = async () => {
     //   try {
@@ -73,7 +89,7 @@ const HomeScreen = ({navigation}) => {
       </ScrollView>
     </ScrollView>
 
-    <BottomTabs icons={bottomTabIcons} tribes={tribes} username={username}/>
+    <BottomTabs icons={bottomTabIcons} user={user}/>
 
   </SafeAreaView>
   )

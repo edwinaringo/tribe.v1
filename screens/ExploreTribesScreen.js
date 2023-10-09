@@ -20,11 +20,11 @@ const ExploreTribesScreen = ({navigation}) => {
   useEffect(() => {
     const fetchTribes = async () => {
       try {
-        const collectionRef = collectionGroup(db, 'tribes')
+        const collectionRef = collection(db, 'tribes')
         console.log("Starting process")
         orderBy('createdAt', 'desc')
 
-        const querySnapshot = await getDocs(collectionRef)        
+        const querySnapshot = await getDocs(collectionRef)     
         const tribeData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
