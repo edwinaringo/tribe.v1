@@ -18,8 +18,7 @@ const db = getFirestore(FIRESTORE_DB)
 
 const uploadTribeSchema = Yup.object().shape({
     // tribeImageUrl: Yup.string().url().required('A URL is required'),
-    tribeEmail:Yup.string().email().required('An email is required'),
-    tribePassword: Yup.string().required().min(6, 'Your password cannot be less than 6 characters'),
+
     tribeName: Yup.string().max(200, 'Name Cannot be longer than 200 characters'),
     tribeDescription: Yup.string().max(200, 'Tribe description cannot be longer than 200 characters'),
     tribeLocation: Yup.string(),
@@ -65,118 +64,117 @@ const FormikTribeUploader = ({navigation}) => {
       }, []);
 
 
-  const uploadTribeToFirebase = async (  
-    tribeEmail,
-    tribePassword,      
-    tribeImageUrl,
-    tribeName, 
-    tribeDescription, 
-    tribeLocation, 
-    tribeMembershipFee,
-    tribePrivacy, ) =>{
+  // const uploadTribeToFirebase = async (  
+  //   tribeEmail,
+  //   tribePassword,      
+  //   tribeImageUrl,
+  //   tribeName, 
+  //   tribeDescription, 
+  //   tribeLocation, 
+  //   tribeMembershipFee,
+  //   tribePrivacy, ) =>{
 
-      const user = auth.currentUser;
-            if (!user) {
-              // Handle user not logged in
-              console.log('User is not logged in.');
-              return;
-            }
+  //     const user = auth.currentUser;
+  //           if (!user) {
+  //             // Handle user not logged in
+  //             console.log('User is not logged in.');
+  //             return;
+  //           }
 
-      try{
-        const authTribe = await createUserWithEmailAndPassword(auth, 
-          tribeEmail,
-          tribePassword,      
-          tribeImageUrl,
-          tribeName, 
-          tribeDescription, 
-          tribeLocation, 
-          tribeMembershipFee,
-          tribePrivacy)
-        console.log("Firebase creation of tribe is successful", tribeEmail, tribeName)
+  //     try{
+  //       const authTribe = await createUserWithEmailAndPassword(auth, 
+  //         tribeEmail,
+  //         tribePassword,      
+  //         tribeImageUrl,
+  //         tribeName, 
+  //         tribeDescription, 
+  //         tribeLocation, 
+  //         tribeMembershipFee,
+  //         tribePrivacy)
+  //       console.log("Firebase creation of tribe is successful", tribeEmail, tribeName)
 
-        const tribesCollection=collection(db, 'tribes')
+  //       const tribesCollection=collection(db, 'tribes')
 
-        const tribeDocRef = doc(tribesCollection, tribeName) // Use the tribe name as the document ID
+  //       const tribeDocRef = doc(tribesCollection, tribeName) // Use the tribe name as the document ID
 
-        const tribe = {
-          tribeName: tribeName,
-          tribeEmail: authTribe.user.email,
-          tribeDescription: tribeDescription,
-          tribeLocation: tribeLocation,
-          tribeMembershipFee: tribeMembershipFee,
-          tribePrivacy: tribePrivacy,
-          tribeImageUrl: await getRandomProfilePicture(),
-          tribeInterests: [],
-          tribeMembers: [],
-          // user: currentLoggedInUser.username,
-          // profile_picture: currentLoggedInUser.profilePicture,
-          owner_uid: user.uid,
-          owner_email: user.email,
-          createdAt: serverTimestamp(),
-          likes_by_users: [],
-          comments: [],
+  //       const tribe = {
+  //         tribeName: tribeName,
+  //         tribeEmail: authTribe.user.email,
+  //         tribeDescription: tribeDescription,
+  //         tribeLocation: tribeLocation,
+  //         tribeMembershipFee: tribeMembershipFee,
+  //         tribePrivacy: tribePrivacy,
+  //         tribeImageUrl: await getRandomProfilePicture(),
+  //         tribeInterests: [],
+  //         tribeMembers: [],
+  //         // user: currentLoggedInUser.username,
+  //         // profile_picture: currentLoggedInUser.profilePicture,
+  //         owner_uid: user.uid,
+  //         owner_email: user.email,
+  //         createdAt: serverTimestamp(),
+  //         likes_by_users: [],
+  //         comments: [],
+  //       }
+  //       await setDoc(tribeDocRef, tribe)
+  //       console.log("firestore addition of tribe successfull: ", tribeEmail, tribeName)
+
+  //     } catch(error){
+  //       console.log('Firestore Adding failed')
+  //       Alert.alert('Tribe name or password is invalid', error.message)
+  //     }
+
+  //   }
+
+  const uploadTribeToFirebase = async (
+        tribeImageUrl,
+        tribeName, 
+        tribeDescription, 
+        tribeLocation, 
+        tribeMembershipFee,
+        tribePrivacy, 
+        tribeUid,
+      ) => {
+        const user = auth.currentUser;
+        if (!user) {
+          // Handle user not logged in
+          console.log('User is not logged in.');
+          return;
         }
-        await setDoc(tribeDocRef, tribe)
-        console.log("firestore addition of tribe successfull: ", tribeEmail, tribeName)
-
-      } catch(error){
-        console.log('Firestore Adding failed')
-        Alert.alert('Tribe name or password is invalid', error.message)
-      }
-
-    }
-
-  // const uploadTribeToFirebase = async (
-  //       tribeImageUrl,
-  //       tribeName, 
-  //       tribeDescription, 
-  //       tribeLocation, 
-  //       tribeMembershipFee,
-  //       tribePrivacy, 
-  //       tribeUid,
-  //     ) => {
-  //       const user = auth.currentUser;
-  //       if (!user) {
-  //         // Handle user not logged in
-  //         console.log('User is not logged in.');
-  //         return;
-  //       }
       
-  //       const tribesRef = collection(db, 'tribes'); // Reference to the 'tribes' collection.
-  //       try {
-  //         await addDoc(tribesRef, { // Add a new document to the 'tribes' collection.
-  //           tribeImageUrl: PLACEHOLDER_IMG,
-  //           tribeName: tribeName,
-  //           tribeDescription: tribeDescription,
-  //           tribeLocation: tribeLocation,
-  //           tribeMembershipFee: tribeMembershipFee,
-  //           tribePrivacy: tribePrivacy,
-  //           tribeInterests: [],
-  //           tribeMembers: [],
-  //           user: currentLoggedInUser.username,
-  //           profile_picture: currentLoggedInUser.profilePicture,
-  //           owner_uid: user.uid,
-  //           owner_email: user.email,
-  //           createdAt: serverTimestamp(),
-  //           likes_by_users: [],
-  //           comments: [],
-  //         });
-  //         navigation.goBack();
-  //       } catch (error) {
-  //         console.error('Error uploading tribe:', error);
-  //       }
-  //     };
+        const tribesRef = collection(db, 'tribes'); // Reference to the 'tribes' collection.
+        try {
+          await addDoc(tribesRef, { // Add a new document to the 'tribes' collection.
+            tribeImageUrl: await getRandomProfilePicture(),
+            tribeName: tribeName,
+            tribeDescription: tribeDescription,
+            tribeLocation: tribeLocation,
+            tribeMembershipFee: tribeMembershipFee,
+            tribePrivacy: tribePrivacy,
+            tribeInterests: [],
+            tribeMembers: [],
+            user: currentLoggedInUser.username,
+            profile_picture: currentLoggedInUser.profilePicture,
+            owner_uid: user.uid,
+            owner_email: user.email,
+            createdAt: serverTimestamp(),
+            likes_by_users: [],
+            comments: [],
+          });
+          navigation.goBack();
+        } catch (error) {
+          console.error('Error uploading tribe:', error);
+        }
+      };
       
 
 
 
   return (
     <Formik
-  initialValues={{ tribeEmail:'', tribePassword:'', tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'', tribeMembershipFee:'', tribePrivacy:'', tribeMembers:0}}
+  initialValues={{ tribeName:'', tribeImageUrl:'', tribeDescription:'', tribeLocation:'', tribeMembershipFee:'', tribePrivacy:'', tribeMembers:0}}
         onSubmit={(values) => {
           uploadTribeToFirebase(
-            values.tribeEmail,
-            values.tribePassword,
+
             values.tribeImageUrl, 
             values.tribeName, 
             values.tribeDescription, 
@@ -198,7 +196,7 @@ const FormikTribeUploader = ({navigation}) => {
                     {/* <Image source={{ uri:PLACEHOLDER_IMG }}
                     style={{ width:100, height:100 }}
                     /> */}
-                    <TextInput 
+                    {/* <TextInput 
                     style={{color: 'white', fontSize: 16}}
                     placeholder ='Enter Tribe Email'
                     placeholderTextColor='gray'
@@ -220,7 +218,7 @@ const FormikTribeUploader = ({navigation}) => {
                     onChangeText={handleChange('tribePassword')}
                     onBlur={handleBlur('tribePassword')}
                     value={values.tribePassword}
-                    />
+                    /> */}
 
                     <TextInput 
                     style={{color: 'white', fontSize: 16}}
