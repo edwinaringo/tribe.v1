@@ -11,7 +11,6 @@ const SignUpScreen = ({navigation}) => {
     <Text style={styles.loginText}>Let's Get Started</Text>
 
     <SignUpForm navigation={navigation}/>
-    <TermsText/>
 
 </SafeAreaView>
 )

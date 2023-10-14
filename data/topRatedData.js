@@ -3,23 +3,23 @@ export const TOPRATED = [
         image: 'https://pbs.twimg.com/ext_tw_video_thumb/1564607945442295814/pu/img/RWu1AFSzYnjhwoKm.jpg',
     },
     {
-        image: 'https://www.kenyanvibe.com/wp-content/uploads/2023/02/Blankets-Wine-2023.jpg',
+        image: 'https://pbs.twimg.com/media/F7h803XWYAATfUa.jpg',
     },    {
-        image: 'https://ictlife-prod-merchapp-pub.s3.eu-west-2.amazonaws.com/assets/merchants/173/merchant_offering/original/PmxYaARXNvfFm1NnSJ4Pl7rbpUVZ9Fe0.jfif',
+        image: 'https://www.ticketsasa.com/components/com_enmasse/upload/Image_3.jfif1697042617.jpg',
     },    {
-        image: 'https://cdn-az.allevents.in/events6/banners/4438b28d1da062915f3124bb8bc1996ad50a241e815e7f30de39227bed30346e-rimg-w526-h593-gmir.jpg?v=1616272825',
+        image: 'https://www.ticketsasa.com/components/com_enmasse/upload/GFF.PNG1695196195.jpg',
     },    {
-        image: 'https://socialsciences.uonbi.ac.ke/sites/default/files/2023-05/NIW%202023_0.jpeg',
+        image: 'https://www.ticketsasa.com/components/com_enmasse/upload/WhatsApp_Image_2023-09-11_at_10.55.02.jpeg1694419013.jpg',
     },    {
-        image: 'https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/285208664_4831281653667950_8272956853825059292_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a26aad&_nc_ohc=N14LcvZtc40AX9sHrd0&_nc_ht=scontent.fnbo15-1.fna&oh=00_AfCUJLW277misxPuZo6FiXxHFlZXEK3IAzDrBtrwN0Tb9w&oe=64BD601D',
+        image: 'https://storage.googleapis.com/m_tickets/assets/event_poster/nairobi-street-food-festival-2023-08-17T13-02-15.922916.jpeg',
     },    {
-        image: 'https://pbs.twimg.com/media/FgduLGZXkAItMKn?format=jpg&name=large',
+        image: 'https://storage.googleapis.com/m_tickets/assets/event_poster/afro-fashion-with-cuisine2023-10-11T12-47-08.940633.jpg',
     },    {
-        image: 'https://www.jazzsymphonic.com/wp-content/uploads/2019/04/Safaricom-Jazz-International-Jazz-Day-poster.jpeg',
+        image: 'https://storage.googleapis.com/m_tickets/assets/event_poster/nyege-nyege-kenyan-edition-2023-08-21T15-53-16.090464.jpeg',
     },    {
-        image: 'https://manage.kenyabuzz.com/public/uploads/posters/1677581308.jpeg',
+        image: 'https://storage.googleapis.com/m_tickets/assets/event_poster/nairobi-international-jazz-festival2023-10-13T09-17-27.822129.jpg',
     },    {
-        image: 'https://portal.mtickets.net/storage/display_images/cbZAjKyi8mBeCKm2r9LAbbG7qikkRoo0PW6hk04F.jpeg',
+        image: 'https://storage.googleapis.com/m_tickets/assets/event_poster/the-hunter-s-cider-amapiano-tour-kanairo-festival2023-10-13T09-55-09.734990.jpeg',
     },
 
 ]

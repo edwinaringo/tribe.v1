@@ -6,6 +6,8 @@ import { getAuth, signOut } from 'firebase/auth'
 
 const auth = getAuth(FIREBASE_AUTH);
 
+const TRIBES = 'https://cdn1.iconfinder.com/data/icons/content-10/24/usergroup-64.png'
+
 const handleSignOut = async () => {
 try{
     await signOut(auth)
@@ -15,7 +17,7 @@ try{
     }
 }
 
-const Header = ({navigation}) => {
+const Header = ({navigation, route}) => {
 
 
   return (
@@ -34,13 +36,10 @@ const Header = ({navigation}) => {
 
                 style={styles.icon}/>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=> navigation.push('TribeLogInScreen')}>
-                <View style={styles.unreadBadge}>
-                    <Text style={styles.unreadBadgeText}>9</Text>
-                </View>
+            <TouchableOpacity onPress={()=> navigation.push('TribeOwnersHomeScreen')}>
+               
 
-                <Image
-                  source={require('../../assets/message.png')}
+                <Image source={{ uri:TRIBES }}
 
                 style={styles.icon}/>
             </TouchableOpacity>

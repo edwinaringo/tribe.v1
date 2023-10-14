@@ -17,30 +17,30 @@ import ExploreScreen from './ExploreScreen'
 
 
 
-const HomeScreen = ({navigation}) => {
-
-  const db = getFirestore(FIRESTORE_DB)
-  const auth = getAuth(FIREBASE_AUTH); 
-  const [tribes, setTribes] = useState([]);
+const HomeScreen = ({ navigation, route }) => {
+  const db = getFirestore(FIRESTORE_DB);
+  const auth = getAuth(FIREBASE_AUTH);
+  const [userTribes, setUserTribes] = useState([]);
   const [user, setUser] = useState('');
 
   useEffect(() => {
     // Get the current authenticated user
-    const auth = getAuth(FIREBASE_AUTH);
-  
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log('Current user:', user);
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        // Fetch user tribes when the user is authenticated
+        fetchUserTribes(authUser);
 
-        const userDocRef = doc(db, 'users', user.id);
-  
+        const userDocRef = doc(db, 'users', authUser.uid);
+
+
         getDoc(userDocRef)
           .then((userDoc) => {
             if (userDoc.exists()) {
-              // User document exists, you can access its data
               const userData = userDoc.data();
               console.log('User data:', userData);
-  
+              setUser(userData);
+
+              // fetchUserTribes(authUser);
             } else {
               // User document does not exist
               console.log('User document does not exist');
@@ -54,32 +54,34 @@ const HomeScreen = ({navigation}) => {
         console.log('User is signed out');
       }
     });
-  
+
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [auth]);
 
-    // const fetchTribes = async () => {
-    //   try {
-    //     const usersSnapshot = await getDocs(collection(db, 'users'))
+  const fetchUserTribes = async (authUser) => {
+    try {
+      const tribesRef = collection(db, 'tribes');
 
-    //     usersSnapshot.forEach(async userDoc => {
-    //       const tribesSnapshot = await getDocs(collection(db, `users/${userDoc.id}/tribes`))
-    //       // console.log(`Tribes for user ${userDoc.id}:`, tribesSnapshot.docs.map(doc => doc.data()))
-    //     });
-    //   } catch (error) {
-    //     console.log('Error fetching Tribes:', error)
-    //   }
-    // }
+      const q = query(tribesRef, where('owner_uid', '==', authUser.uid));
+      const querySnapshot = await getDocs(q);
+      const userTribesData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
 
-    // fetchTribes()
+      setUserTribes(userTribesData);
+    } catch (error) {
+      console.error('Error fetching user tribes:', error);
+    }
+  }
 
     
   return (
   <SafeAreaView style = {styles.container}> 
     <ScrollView>
-      <Header navigation={navigation}/>
+      <Header navigation={navigation} userTribes={userTribes} route={route}/>
       <Stories/>
       <Rated/>
       <ScrollView>

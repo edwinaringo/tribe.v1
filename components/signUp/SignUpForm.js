@@ -45,6 +45,7 @@ const SignUpForm = ({navigation}) => {
         username: username,
         email: authUser.user.email,
         profile_picture: await getRandomProfilePicture(),
+        tribes: [],
       }
 
       await setDoc(userDocRef, user)
@@ -70,7 +71,7 @@ const SignUpForm = ({navigation}) => {
     <ScrollView style = {styles.wrapper}>
 
     <Formik
-        initialValues={{username: '', email:'', password: '', age: '', phoneNumber: '', gender: ''}}
+        initialValues={{username: '', email:'', password: '', age: '', phoneNumber: '', gender: '', tribes: []}}
         onSubmit={values =>{
             onSignup(values.email, values.password, values.username)
         }}

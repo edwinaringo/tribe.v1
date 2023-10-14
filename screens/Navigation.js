@@ -16,6 +16,7 @@ import TribeDetailsScreen from './TribeDetailsScreen'
 import TribeOwnersHomeScreen from './TribeOwnersHomeScreen'
 import CreateEventScreen from './CreateEventScreen'
 import TribeLogInScreen from './TribeLogInScreen'
+import SplashScreen from './SplashScreen'
 
 
 const Stack = createStackNavigator()
@@ -43,6 +44,7 @@ export const SignedInStack = () => (
                 <Stack.Screen name = 'CreateEventScreen' component={CreateEventScreen} />
                 <Stack.Screen name = 'TribeLogInScreen' component={TribeLogInScreen} />
 
+
         </Stack.Navigator>
     </NavigationContainer>
  
@@ -51,9 +53,10 @@ export const SignedInStack = () => (
 export const SignedOutStack = () => (
     <NavigationContainer>
         <Stack.Navigator 
-            initialRouteName='LoginScreen' 
+            initialRouteName='SplashScreen' 
             screenOptions={screenOptions}
             >
+                <Stack.Screen name = 'SplashScreen' component={SplashScreen} />
                 <Stack.Screen name = 'LoginScreen' component={LoginScreen} />
                 <Stack.Screen name = 'SignUpScreen' component={SignUpScreen}/>
     
