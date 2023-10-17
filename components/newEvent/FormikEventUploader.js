@@ -10,6 +10,12 @@ import { useNavigation } from '@react-navigation/native'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 
+
+
+const PLACEHOLDER_IMG = 'https://react.semantic-ui.com/images/wireframe/image.png'
+
+const auth = getAuth(FIREBASE_AUTH);
+
 const uploadEventSchema = Yup.object().shape({
   // eventImageUrl: Yup.string().url().required('A URL is required'),
   eventName: Yup.string().max(200, 'Name Cannot be longer than 200 characters').required(),
@@ -23,8 +29,13 @@ const uploadEventSchema = Yup.object().shape({
 
 const db = getFirestore(FIRESTORE_DB)
 
+const getRandomEventPicture = async() => {
+  const response = await fetch('https://randomuser.me/api')
+  const data = await response.json()
+  return data.results[0].picture.large
+}
 
-const FormikEventUploader = ({navigation}) => {
+const FormikEventUploader = ({navigation, user, userTribe}) => {
 
   const [currentTribe, setCurrentTribe] = useState(null)
 
@@ -60,7 +71,7 @@ const FormikEventUploader = ({navigation}) => {
       usersGoing: [],
       user: currentLoggedInUser.username,
       profile_picture: currentLoggedInUser.profilePicture,
-      owner_uid: user.uid,
+      owner_uid: user.email,
       owner_email: user.email,
       tribe_uid: tribe.id,
       createdAt: serverTimestamp(),

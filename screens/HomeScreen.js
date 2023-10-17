@@ -64,8 +64,9 @@ const HomeScreen = ({ navigation, route }) => {
     try {
       const tribesRef = collection(db, 'tribes');
 
-      const q = query(tribesRef, where('owner_uid', '==', authUser.email));
+      const q = query(tribesRef, where('owner_uid', '==', authUser.uid));
       const querySnapshot = await getDocs(q);
+      console.log("Snap Shot: ", querySnapshot)
       const userTribesData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
