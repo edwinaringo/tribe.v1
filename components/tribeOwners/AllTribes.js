@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
 const AllTribes = ({user, userTribes}) => {
+
+    console.log()
   return (
     <View>
       <View style={styles.container2}>
