@@ -7,6 +7,14 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "95a1dc5d-a612-4666-9dea-5df63c7612ef"
+      }
+    },
+    "android": {
+      "package": "com.aringi.tribe"
+    }
   }
 }

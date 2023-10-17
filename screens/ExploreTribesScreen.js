@@ -30,7 +30,7 @@ const ExploreTribesScreen = ({navigation}) => {
           ...doc.data(),
         }));
         setTribes(tribeData);
-        console.log("Here are your tribes:", tribeData)
+        console.log("Here are all the tribes:", tribeData)
       } catch (error) {
         console.error('Error fetching data:', error)
       }

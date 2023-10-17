@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation, route }) => {
         // Fetch user tribes when the user is authenticated
         fetchUserTribes(authUser);
 
-        const userDocRef = doc(db, 'users', authUser.uid);
+        const userDocRef = doc(db, 'users', authUser.email);
 
 
         getDoc(userDocRef)
@@ -71,6 +71,8 @@ const HomeScreen = ({ navigation, route }) => {
         ...doc.data(),
       }));
 
+      console.log("These are the users tribes: ", userTribesData)
+
       setUserTribes(userTribesData);
     } catch (error) {
       console.error('Error fetching user tribes:', error);
@@ -81,7 +83,7 @@ const HomeScreen = ({ navigation, route }) => {
   return (
   <SafeAreaView style = {styles.container}> 
     <ScrollView>
-      <Header navigation={navigation} userTribes={userTribes} route={route}/>
+      <Header navigation={navigation} userTribes={userTribes} user= {user} route={route}/>
       <Stories/>
       <Rated/>
       <ScrollView>

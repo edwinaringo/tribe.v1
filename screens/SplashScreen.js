@@ -13,7 +13,7 @@ export default function SplashScreen({navigation}) {
         />
 
          <Pressable titleSize={20} style={styles.button2} onPress={() => navigation.push('LoginScreen')}>
-                <Text style={{fontSize: 20, fontFamily: 'Font'}}>Log in</Text>
+                <Text style={{fontSize: 20}}>Log in</Text>
          </Pressable>
     </View>
   )

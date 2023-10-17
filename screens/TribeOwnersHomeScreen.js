@@ -4,32 +4,26 @@ import Header from '../components/tribeOwners/Header'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CreateEventButton from '../components/tribeOwners/CreateEventButton'
 import TribePosts from '../components/tribeOwners/TribePosts'
+import AllTribes from '../components/tribeOwners/AllTribes'
 
 const TribeOwnersHomeScreen = ({navigation, route}) => {
 
-  const userTribes = route.params?.userTribes || []
+  const {user, userTribes} = route.params || []
 
   console.log("Your tribes are: ", userTribes)
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
-            <CreateEventButton navigation={navigation}/>
-            <Text>Tribes Owned by Current User:</Text>
+      <Header user= {user} route={route}/>
+            <CreateEventButton navigation={navigation} user={user}/>
 
-      <View style={styles.container2}>
-        <View style={styles.item}>
-            <Image source = {{ uri: userTribes.tribeImageUrl }} style={styles.post}/>
-                <View style={styles.tribeDetails}>
-                    <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>{userTribes.tribeName}</Text>
-                    <Text style={{color:"#3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>{userTribes.tribeLocation}</Text>
-                    <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>{userTribes.tribeMembers} members</Text>
-                    <Text style={{color:"#3F3F3F", bottom:5, top:10, marginLeft:3}}>{userTribes.tribeMembershipFee} membership fee</Text>
-                </View>
-        </View>
-      </View>
-
-
+            {userTribes.length === 0 ? (
+                <Text>No tribes found.</Text>
+              ) : (
+                userTribes.map((userTribes, index) => (
+                  <AllTribes userTribes={userTribes} key={index} navigation={navigation} user={user} />
+                ))
+              )}
             {/* <TribePosts navigation={navigation}/> */}
     </SafeAreaView>
   )

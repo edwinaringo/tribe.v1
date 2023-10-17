@@ -156,14 +156,14 @@ const FormikTribeUploader = ({navigation}) => {
             tribeMembers: [],
             user: currentLoggedInUser.username,
             profile_picture: currentLoggedInUser.profilePicture,
-            owner_uid: user.uid,
+            owner_uid: user.email,
             owner_email: user.email,
             createdAt: serverTimestamp(),
             likes_by_users: [],
             comments: [],
           });
 
-          const userRef = doc(db, 'users', user.uid)
+          const userRef = doc(db, 'users', user.email)
           await updateDoc(userRef, {
             tribes: arrayUnion(tribeDocRef.id)
           })

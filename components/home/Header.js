@@ -17,7 +17,7 @@ try{
     }
 }
 
-const Header = ({navigation, route}) => {
+const Header = ({navigation, route, user, userTribes}) => {
 
 
   return (
@@ -36,9 +36,8 @@ const Header = ({navigation, route}) => {
 
                 style={styles.icon}/>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=> navigation.push('TribeOwnersHomeScreen')}>
+            <TouchableOpacity onPress={()=> navigation.push('TribeOwnersHomeScreen' ,{ user, userTribes, route })}>
                
-
                 <Image source={{ uri:TRIBES }}
 
                 style={styles.icon}/>
