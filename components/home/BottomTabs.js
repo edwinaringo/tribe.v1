@@ -33,7 +33,7 @@ export const bottomTabIcons = [
 
     }
 ]
-const BottomTabs = ({ user }) => {
+const BottomTabs = ({ user, route }) => {
 
   // const { user } = route.params
 
@@ -109,7 +109,7 @@ const BottomTabs = ({ user }) => {
       //   break;
       
       case 'Profile' :
-        navigation.navigate('ProfileScreen', { user })
+        navigation.navigate('ProfileScreen',  user={user}, route={route})
         break;
 
         default:

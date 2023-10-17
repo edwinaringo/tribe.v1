@@ -11,15 +11,14 @@ import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
 import {  getFirestore, collection, getDocs, orderBy, query, where } from 'firebase/firestore'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; 
 
-const ProfileScreen = ({ route, navigation }) => {
+const ProfileScreen = ({ route, navigation, user }) => {
 
   // const [authenticatedUser, setUser] = useState('');
   const db = getFirestore(FIRESTORE_DB)
 
 
-  const authenticatedUser = route.params?.user ;
+  // const authenticatedUser = route.params?.user ;
 
-  console.log("The user is: ", authenticatedUser)
 
 
   // Get the user data from the route params
@@ -60,9 +59,9 @@ const ProfileScreen = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation} />
       <ScrollView>
-        <ProfilePicture user={authenticatedUser} navigation={navigation} route={route} />
-        <Followers navigation={navigation} route={route} />
-        <TicketsTribes navigation={navigation} route={route} />
+        <ProfilePicture user={user} navigation={navigation} route={route} />
+        <Followers navigation={navigation} route={route} user={user}/>
+        <TicketsTribes navigation={navigation} route={route} user={user} />
       </ScrollView>
       {/* <BottomTabs user={user} route={route} icons={bottomTabIcons} /> */}
     </SafeAreaView>

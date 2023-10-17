@@ -4,8 +4,6 @@ import React from 'react'
 const AllTribes = ({user, userTribes}) => {
   return (
     <View>
-      <Text>These are your tribes: </Text>
-
       <View style={styles.container2}>
         <View style={styles.item}>
             <Image source = {{ uri: userTribes.tribeImageUrl }} style={styles.post}/>
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
 
     container2: {
         marginTop:15,
-        marginBottom:5,
+        marginBottom:100,
     },
   
     item: {

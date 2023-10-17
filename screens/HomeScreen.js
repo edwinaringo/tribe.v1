@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation, route }) => {
       </ScrollView>
     </ScrollView>
 
-    <BottomTabs icons={bottomTabIcons} user={user}/>
+    <BottomTabs icons={bottomTabIcons} user={user} route={route}/>
 
   </SafeAreaView>
   )

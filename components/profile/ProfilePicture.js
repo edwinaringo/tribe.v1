@@ -14,7 +14,7 @@ const ProfilePicture = ({route}) => {
     <View style={styles.profileContainer}>
       <Image source={{ uri: PROFILE_PICTURE }} style={styles.profilePicture} />
 
-      <Text style={styles.profileText}></Text>
+      <Text style={styles.profileText}>{user.username}</Text>
 
       <Pressable titleSize={25} style={styles.tokens}>
         <Image source={{ uri: TOKEN_ICON }} style={styles.tokenIcon} />
