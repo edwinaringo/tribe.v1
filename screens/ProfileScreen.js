@@ -11,7 +11,7 @@ import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
 import {  getFirestore, collection, getDocs, orderBy, query, where } from 'firebase/firestore'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; 
 
-const ProfileScreen = ({ route, navigation, user }) => {
+const ProfileScreen = ({ route, navigation, user, userTribes }) => {
 
   // const [authenticatedUser, setUser] = useState('');
   const db = getFirestore(FIRESTORE_DB)
@@ -61,7 +61,7 @@ const ProfileScreen = ({ route, navigation, user }) => {
       <ScrollView>
         <ProfilePicture user={user} navigation={navigation} route={route} />
         <Followers navigation={navigation} route={route} user={user}/>
-        <TicketsTribes navigation={navigation} route={route} user={user} />
+        <TicketsTribes navigation={navigation} route={route} user={user} userTribes ={userTribes} />
       </ScrollView>
       {/* <BottomTabs user={user} route={route} icons={bottomTabIcons} /> */}
     </SafeAreaView>

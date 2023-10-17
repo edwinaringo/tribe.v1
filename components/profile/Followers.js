@@ -3,7 +3,7 @@ import React from 'react'
 
 const Followers = ({route}) => {
 
-    // const { user } = route.params
+    const { user, userTribes } = route.params
 
   return (
     <View>
@@ -11,7 +11,7 @@ const Followers = ({route}) => {
             <View style={styles.followerNumber}>
                 <Text style={{color:'black', fontSize:16, fontFamily:'BoldFont', left:15}}>3450</Text>
                 <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont'}}>203</Text>
-                <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont', right:15}}>5</Text>
+                <Text style={{color:'black',fontSize:16, fontFamily:'BoldFont', right:15}}>{user.tribes.length.toLocaleString('en')}</Text>
             </View>
 
             <View style={styles.followersText}>

@@ -7,7 +7,7 @@ const TRIBES = 'https://cdn1.iconfinder.com/data/icons/content-10/24/usergroup-6
 const BOOKED_EVENTS = 'https://cdn0.iconfinder.com/data/icons/business-office-1-7/55/13-64.png'
 
 
-const TicketsTribes = ({navigation, route}) => {
+const TicketsTribes = ({navigation, route, user, userTribes}) => {
   return (
     <View>
         <View>
@@ -26,14 +26,14 @@ const TicketsTribes = ({navigation, route}) => {
         </View>
 
         <View style={styles.buttonsContainer}>
-            <Pressable titleSize={25} style={styles.ticketsContainer} onPress={()=>navigation.push('CreateTribeScreen')} >
+            <Pressable titleSize={25} style={styles.ticketsContainer} onPress={()=>navigation.push('CreateTribeScreen') } >
                 <Image source={{ uri:CREATE_TRIBE }} style={styles.icon}/>
                 <Text style={styles.ticketsText}>Create your tribe</Text>
             </Pressable>
         </View>
 
         <View style={styles.buttonsContainer}>
-            <Pressable titleSize={25} style={styles.ticketsContainer}>
+            <Pressable titleSize={25} style={styles.ticketsContainer} onPress={()=>navigation.push('TribeOwnersHomeScreen', user, userTribes)}>
                 <Image source={{ uri:TRIBES }} style={styles.icon}/>
                 <Text style={styles.ticketsText}>My Tribes</Text>
             </Pressable>
