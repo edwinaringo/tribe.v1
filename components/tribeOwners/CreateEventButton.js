@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 
-const CreateEventButton = ({navigation}) => {
+const CreateEventButton = ({navigation, userTribes, route}) => {
   return (
     <View style={{alignItems:'center'}}>
-        <Pressable titleSize={20} style={styles.button} onPress={()=> navigation.push('CreateEventScreen')}>
+        <Pressable titleSize={20} style={styles.button} onPress={()=> navigation.push('CreateEventScreen' , userTribes, route)}>
             <Text style={{fontFamily:'Font', color:'#C43D1C'}}>Create new event</Text>
         </Pressable>
     </View>

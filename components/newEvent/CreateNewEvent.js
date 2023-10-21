@@ -2,13 +2,19 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import FormikEventUploader from './FormikEventUploader'
 
-const CreateNewEvent = ({navigation}) => (
 
+
+const CreateNewEvent = ({navigation, route, userTribes}) => {
+    
+    // const { userTribes } = route.params
+
+    return(
     <View style={styles.container}>
         <Header navigation={navigation}/>
-        <FormikEventUploader navigation={navigation} />
+        <FormikEventUploader navigation={navigation} userTribes={userTribes} route={route} />
     </View>
-)
+    )
+}
 
 const Header = ({navigation}) => (
     <View style={styles.headerContainer}>

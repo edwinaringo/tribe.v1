@@ -15,8 +15,7 @@ const TribeOwnersHomeScreen = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header user= {user} route={route}/>
-            <CreateEventButton navigation={navigation} user={user}/>
-
+      <CreateEventButton navigation={navigation} user={user} userTribes={userTribes}/>
             {userTribes.length === 0 ? (
                 <Text>No tribes found.</Text>
               ) : (

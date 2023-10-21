@@ -2,7 +2,6 @@ import { View, TouchableOpacity, StyleSheet, Image, Animated, Keyboard, Easing }
 import React, { useState, useEffect, useCallback } from 'react'
 import { Divider } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
-import ExploreScreen from '../../screens/ExploreScreen'
 
 
 export const bottomTabIcons = [
@@ -99,14 +98,6 @@ const BottomTabs = ({ user, route }) => {
       case 'Explore' :
         navigation.navigate('ExploreScreen')
         break;
-
-      // case 'WeLive' :
-      //   navigation.navigate('WeLiveScreen')
-      //   break;
-
-      // case 'Tickets' :
-      //   navigation.navigate('TicketsScreen')
-      //   break;
       
       case 'Profile' :
         navigation.navigate('ProfileScreen',  user={user}, route={route})

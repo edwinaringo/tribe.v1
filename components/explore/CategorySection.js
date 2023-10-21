@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Divider } from 'react-native-elements'
-import ExploreTribesScreen from '../../screens/ExploreTribesScreen'
 
 const CategorySection = ({navigation}) => {
   return (

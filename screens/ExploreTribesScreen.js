@@ -1,17 +1,30 @@
-import { View, Text, StyleSheet, ScrollView, Keyboard, Animated } from 'react-native'
-import React,{useCallback, useEffect, useState} from 'react'
+import { Text, StyleSheet, ScrollView, Keyboard, Animated } from 'react-native'
+import React,{ useEffect, useState} from 'react'
 import SearchBar from '../components/explore/SearchBar'
-import ExploreBottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CategorySection from '../components/explore/CategorySection'
 import ExploreTribesPosts from '../components/exploreTribes/ExploreTribesPosts'
-import { TRIBES } from '../data/tribes'
-import { getDocs, collection, getFirestore, collectionGroup, orderBy } from 'firebase/firestore'
+import { getDocs, collection, getFirestore, orderBy } from 'firebase/firestore'
 import { FIRESTORE_DB } from '../firebase'
 
 
 
 const ExploreTribesScreen = ({navigation}) => {
+
+  const handleTabPress = (tabName) => {
+    switch (tabName) {
+      case 'Home':
+        navigation.navigate('HomeScreen');
+        break;
+      case 'Explore':
+        navigation.navigate('ExploreScreen');
+        break;
+      // Add cases for 'WeLive', 'Tickets', 'Profile', or any other tabs.
+      default:
+        break;
+    }
+  }
 
   const db = getFirestore(FIRESTORE_DB)
   
@@ -56,7 +69,7 @@ const ExploreTribesScreen = ({navigation}) => {
               )}
              
         </ScrollView>       
-        <ExploreBottomTabs icons={bottomTabIcons} />
+        <BottomTabs icons={bottomTabIcons} handleTabPress={handleTabPress}/>
     </SafeAreaView>
     )
 }
