@@ -15,6 +15,9 @@
     },
     "android": {
       "package": "com.aringi.tribe"
+    },
+    "ios": {
+      "bundleIdentifier": "com.aringi.tribe"
     }
   }
 }
