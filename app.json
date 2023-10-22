@@ -15,7 +15,7 @@
     },
     "android": {
       "package": "com.aringi.tribe",
-      "versionCode": 2
+      "versionCode": 3
     },
     "ios": {
       "bundleIdentifier": "com.aringi.tribe"
