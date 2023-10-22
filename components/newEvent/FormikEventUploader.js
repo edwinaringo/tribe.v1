@@ -92,7 +92,7 @@ const FormikEventUploader = ({navigation, route}) => {
 
   return (
     <View>
-      <Text>hello {userTribes.tribeName}</Text>
+      <Text>hello</Text>
     </View>
   )
 }
