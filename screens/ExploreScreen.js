@@ -8,18 +8,18 @@ import CategorySection from '../components/explore/CategorySection'
 
 const ExploreScreen = ({navigation}) => {
 
-  const handleTabPress = (tabName) => {
-    switch (tabName) {
-      case 'Home':
-        navigation.navigate('HomeScreen');
-        break;
-      case 'Explore':
-        break;
-      // Cases for 'WeLive', 'Tickets', 'Profile'
-      default:
-        break;
-    }
-  }
+  // const handleTabPress = (tabName) => {
+  //   switch (tabName) {
+  //     case 'Home':
+  //       navigation.navigate('HomeScreen');
+  //       break;
+  //     case 'Explore':
+  //       break;
+  //     // Cases for 'WeLive', 'Tickets', 'Profile'
+  //     default:
+  //       break;
+  //   }
+  // }
 
     
   return (
@@ -28,7 +28,7 @@ const ExploreScreen = ({navigation}) => {
              <SearchBar />
              <CategorySection navigation={navigation}/>
         </ScrollView>       
-        <BottomTabs activeTab="Explore" handleTabPress={handleTabPress} icons={bottomTabIcons} />
+        {/* <BottomTabs activeTab="Explore" handleTabPress={handleTabPress} icons={bottomTabIcons} /> */}
     </SafeAreaView>
     )
 }

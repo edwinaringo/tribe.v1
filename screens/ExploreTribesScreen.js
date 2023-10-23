@@ -69,7 +69,7 @@ const ExploreTribesScreen = ({navigation}) => {
               )}
              
         </ScrollView>       
-        <BottomTabs icons={bottomTabIcons} handleTabPress={handleTabPress}/>
+        {/* <BottomTabs icons={bottomTabIcons} handleTabPress={handleTabPress}/> */}
     </SafeAreaView>
     )
 }
