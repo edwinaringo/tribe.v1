@@ -11,7 +11,7 @@ const AddNewEvent = () => (
 
 const Header = () => (
     <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Create your event</Text>
+        <Text style={styles.headerText}>Create your vent</Text>
         <TouchableOpacity>
             {/* <Image 
             source={{

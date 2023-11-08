@@ -37,7 +37,6 @@ const getRandomEventPicture = async() => {
 
 const FormikEventUploader = ({navigation, route}) => {
 
-  const { userTribes } = route.params
 
 
   const [currentTribe, setCurrentTribe] = useState(null)

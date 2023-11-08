@@ -8,6 +8,8 @@ const BOOKED_EVENTS = 'https://cdn0.iconfinder.com/data/icons/business-office-1-
 
 
 const TicketsTribes = ({navigation, route, user, userTribes}) => {
+
+
   return (
     <View>
         <View>
@@ -33,7 +35,7 @@ const TicketsTribes = ({navigation, route, user, userTribes}) => {
         </View>
 
         <View style={styles.buttonsContainer}>
-            <Pressable titleSize={25} style={styles.ticketsContainer} onPress={()=>navigation.push('TribeOwnersHomeScreen', user, userTribes)}>
+            <Pressable titleSize={25} style={styles.ticketsContainer} onPress={()=>navigation.push('TribeOwnersHomeScreen', { user, userTribes, route })}>
                 <Image source={{ uri:TRIBES }} style={styles.icon}/>
                 <Text style={styles.ticketsText}>My Tribes</Text>
             </Pressable>

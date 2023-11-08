@@ -3,6 +3,8 @@ import React from 'react'
 
 const AllTribes = ({user, userTribes}) => {
 
+  
+
   return (
     <View>
       <View style={styles.container2}>

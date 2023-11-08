@@ -13,6 +13,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const ProfileScreen = ({ route, navigation, user, userTribes }) => {
 
+  
+
   // const [authenticatedUser, setUser] = useState('');
   const db = getFirestore(FIRESTORE_DB)
 
