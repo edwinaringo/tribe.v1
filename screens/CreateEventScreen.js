@@ -8,17 +8,21 @@ import { TRIBES } from '../data/tribes'
 
 const CreateEventScreen = ({navigation, route}) => {
 
+  const userTribe = route.params?.userTribe || {}; // Use default value if userTribe is undefined
+
+
+
+
   const db = getFirestore(FIRESTORE_DB)
+  // console.log("Event for: ", userTribe.tribeName)
+  console.log("Create new Event for: ", userTribe.tribeName)
 
-
-  const selectedUserTribe = route.params?.userTribes
-
-  console.log('Selected user tribe:', selectedUserTribe);
+  
 
 
   return (
     <SafeAreaView style={styles.container}>
-        <CreateNewEvent navigation={navigation} userTribes={selectedUserTribe} route={route}/>
+        <CreateNewEvent navigation={navigation} userTribe={userTribe} route={route}/>
     </SafeAreaView>
   )
 }

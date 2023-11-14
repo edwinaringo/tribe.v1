@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native'
 import React,{ useEffect, useState } from 'react'
 import Header from '../components/tribeOwners/Header'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import CreateEventButton from '../components/tribeOwners/CreateEventButton'
+import CreateEventButton from '../components/tribeDetailsOwner/CreateEventButton'
 import TribePosts from '../components/tribeOwners/TribePosts'
 import AllTribes from '../components/tribeOwners/AllTribes'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../firebase'
@@ -78,7 +78,7 @@ const TribeOwnersHomeScreen = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header user= {user} route={route}/>
-      <CreateEventButton navigation={navigation} user={user} userTribes={userTribes}/>
+      <Text>Here are your tribes</Text>
                 {userTribes && userTribes.length === 0 ? (
                 <Text>No tribes found.</Text>
                 ) : (

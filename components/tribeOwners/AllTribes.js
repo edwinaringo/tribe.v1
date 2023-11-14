@@ -1,23 +1,34 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+
 
 const AllTribes = ({user, userTribes}) => {
+
+  const navigation = useNavigation()
+
+  const handlePostPress = () => {
+    navigation.navigate('TribeDetailsOwnerScreen', {userTribes, user})
+  }
+
 
   
 
   return (
     <View>
-      <View style={styles.container2}>
-        <View style={styles.item}>
-            <Image source = {{ uri: userTribes.tribeImageUrl }} style={styles.post}/>
-                <View style={styles.tribeDetails}>
-                    <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>{userTribes.tribeName}</Text>
-                    <Text style={{color:"#3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>{userTribes.tribeLocation}</Text>
-                    <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>{userTribes.tribeMembers} members</Text>
-                    <Text style={{color:"#3F3F3F", bottom:5, top:10, marginLeft:3}}>{userTribes.tribeMembershipFee} membership fee</Text>
-                </View>
+      <TouchableOpacity onPress={handlePostPress}>
+        <View style={styles.container2}>
+          <View style={styles.item}>
+              <Image source = {{ uri: userTribes.tribeImageUrl }} style={styles.post}/>
+                  <View style={styles.tribeDetails}>
+                      <Text style={{color:"black", fontSize:20, fontWeight:'bold',marginLeft:3}}>{userTribes.tribeName}</Text>
+                      <Text style={{color:"#3F3F3F", textAlign:"right", marginRight:1, top:48, fontSize:13, right:10}}>{userTribes.tribeLocation}</Text>
+                      <Text style={{color:"#3F3F3F", top:5, marginLeft:3}}>{userTribes.tribeMembers} members</Text>
+                      <Text style={{color:"#3F3F3F", bottom:5, top:10, marginLeft:3}}>{userTribes.tribeMembershipFee} membership fee</Text>
+                  </View>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }

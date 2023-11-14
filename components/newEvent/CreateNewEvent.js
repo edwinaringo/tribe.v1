@@ -4,14 +4,16 @@ import FormikEventUploader from './FormikEventUploader'
 
 
 
-const CreateNewEvent = ({navigation, route, userTribes}) => {
+const CreateNewEvent = ({navigation, route, userTribe}) => {
     
-    // const { userTribes } = route.params
+    // const { userTribe } = route.params
+    console.log("Create new Event for: ", userTribe.tribeName)
 
     return(
     <View style={styles.container}>
         <Header navigation={navigation}/>
-        <FormikEventUploader navigation={navigation} userTribes={userTribes} route={route} />
+        <FormikEventUploader navigation={navigation} userTribe={userTribe} route={route} />
+        {/* <Text>HEllO, {userTribes.tribeName}</Text> */}
     </View>
     )
 }
