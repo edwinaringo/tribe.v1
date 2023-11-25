@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import Validator from 'email-validator'
 import validUrl from 'valid-url'
 import { FIREBASE_AUTH, FIRESTORE_DB } from '../../firebase'
-import { getFirestore, addDoc, serverTimestamp, query, where, limit, collection, getDocs, doc, setDoc, collectionGroup } from 'firebase/firestore'
+import { getFirestore, addDoc, serverTimestamp, query, where, limit, collection, getDocs, doc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore'
 import { useNavigation } from '@react-navigation/native'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
@@ -51,16 +51,24 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
     eventLocation,
     eventRate, 
   ) => {
-    const user = auth.currentUser;
-    if (!user) {
+    const selectedTribe = userTribe;
+    if (!selectedTribe) {
       // Handle user not logged in
-      console.log('User is not logged in.');
+      console.log('Tribe does not exist.');
       return;
   }
 
-  const eventRef = collectionGroup(db, 'tribes', 'events')
+  const eventRef = collection(db, 'events')
+
+
   try {
-    await addDoc(eventRef, {
+
+      // Use the event name as the document ID
+      const eventDocRef = doc(eventRef, eventName);
+
+      const tribeRef = doc(db, 'tribes', selectedTribe.tribeName);
+  
+    const event = {
       eventImageUrl: await getRandomEventPicture(),
       eventName: eventName,
       eventDate: eventDate,
@@ -68,15 +76,19 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
       eventLocation: eventLocation,
       eventRate: eventRate,
       usersGoing: [],
-      tribe_name: userTribe.tribeName,
+      tribe_name: selectedTribe.tribeName,
       createdAt: serverTimestamp(),
       going: [],
       comments: [],
-    });
-    navigation.goBack();
-  } catch (error) {
-    console.error('Error uploading event:', error);
-  }
+    };
+    await setDoc(eventDocRef, event)
+    await updateDoc(tribeRef, {
+        events: arrayUnion(eventDocRef.id)
+      })
+      navigation.goBack();
+    } catch (error) {                                                                                                                 
+      console.error('Error uploading event:', error);
+    }
 };
 
   return (
@@ -131,7 +143,7 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
                       /> */}
   
                       <TextInput 
-                      style={{color: 'white', fontSize: 16}}
+                      style={{fontSize: 16}}
                       placeholder ='Enter Event Name'
                       placeholderTextColor='gray'
                       onChangeText={handleChange('eventName')}
@@ -153,7 +165,7 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
                       /> */}
 
                       <TextInput 
-                      style={{color: 'white', fontSize: 16}}
+                      style={{fontSize: 16}}
                       placeholder ='Enter Event date...' 
                       placeholderTextColor='gray'
                       multiline={true}
@@ -165,7 +177,7 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
 
   
                       <TextInput 
-                      style={{color: 'white', fontSize: 16}}
+                      style={{fontSize: 16}}
                       placeholder ='Enter Event description...' 
                       placeholderTextColor='gray'
                       multiline={true}
@@ -175,7 +187,7 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
                       />
   
                       <TextInput 
-                      style={{color: 'white', fontSize: 16}}
+                      style={{fontSize: 16}}
                       placeholder ='Enter Event location' 
                       placeholderTextColor='gray'
                       onChangeText={handleChange('eventLocation')}
@@ -184,7 +196,7 @@ const FormikEventUploader = ({navigation, route, userTribe}) => {
                       />
   
                       <TextInput 
-                      style={{color: 'white', fontSize: 16}}
+                      style={{fontSize: 16}}
                       placeholder ='Enter Event Rate' 
                       placeholderTextColor='gray'
                       onChangeText={handleChange('eventRate')}

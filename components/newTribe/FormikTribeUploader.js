@@ -100,6 +100,7 @@ const FormikTribeUploader = ({navigation}) => {
           tribePrivacy: tribePrivacy,
           tribeInterests: [],
           tribeMembers: [],
+          tribeEvents: [],
           profile_picture: currentLoggedInUser.profilePicture,
           user:currentLoggedInUser.username,
           owner_uid: user.uid,
